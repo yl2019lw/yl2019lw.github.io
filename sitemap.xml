@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/12/classification/alexnet/</loc>
+    
+    <lastmod>2019-03-12T04:44:20.004Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2019-03-12T03:56:14.310Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2019-03-12T03:53:29.238Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/12/rcnn/</loc>
+    
+    <lastmod>2019-03-12T02:37:13.933Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/12/resnet/</loc>
+    
+    <lastmod>2019-03-12T02:36:27.373Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/02/22/test-my-site/</loc>
+    
+    <lastmod>2019-02-22T10:17:59.158Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/02/22/hello-world/</loc>
+    
+    <lastmod>2019-02-22T10:15:00.890Z</lastmod>
+    
+  </url>
+  
+</urlset>
