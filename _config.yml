@@ -81,7 +81,7 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/yl2019lw/yl2019lw.github.io.git
-  branch: public
+  branch: master
 
 
 # Search 
