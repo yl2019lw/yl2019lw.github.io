@@ -1,10 +1,10 @@
 ---
-title: rcnn
+title: ssd
 tags:
   - CVPR2016
   - detection
 category:
   - computer vision
   - detection
-date: 2019-03-13 10:51:26
+date: 2019-03-13 10:55:47
 ---

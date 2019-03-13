@@ -1,10 +1,10 @@
 ---
-title: rcnn
+title: FPN
 tags:
   - CVPR2016
   - detection
 category:
   - computer vision
   - detection
-date: 2019-03-13 10:51:26
+date: 2019-03-13 10:57:15
 ---
