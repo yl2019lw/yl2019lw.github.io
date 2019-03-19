@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2019/03/12/hello-world/"/>
+      <url>/2019/03/12/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="quick-start">Quick Start</h2><h3 id="create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>rcnn</title>
+      <link href="/2019/03/12/rcnn/"/>
+      <url>/2019/03/12/rcnn/</url>
+      
+        <content type="html"><![CDATA[<h1 id="r-cnn">R-CNN</h1><h2 id="selective-search">selective search</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> computer vision </category>
+          
+          <category> detection </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> detection </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>resnet</title>
+      <link href="/2019/03/12/resnet/"/>
+      <url>/2019/03/12/resnet/</url>
+      
+        <content type="html"><![CDATA[<h1 id="resnet">Resnet</h1><h2 id="deep-learning">deep learning</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> computer vision </category>
+          
+          <category> classification </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> classification </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>alexnet</title>
+      <link href="/2019/03/12//classification/alexnet/"/>
+      <url>/2019/03/12//classification/alexnet/</url>
+      
+        <content type="html"><![CDATA[<h1 id="alexnet">Alexnet</h1><p>这是一个方程</p><p><span class="math display">\[ E = mc^2 \]</span></p><p>another equation</p><p><span class="math display">\[\begin{align}x &amp;= a +b+c+d\\  &amp;= e +f\\  &amp;= g\end{align}\]</span></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> computer vision </category>
+          
+          <category> classification </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> classification </tag>
+            
+            <tag> nips </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>test_my_site</title>
+      <link href="/2019/02/22/test-my-site/"/>
+      <url>/2019/02/22/test-my-site/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
