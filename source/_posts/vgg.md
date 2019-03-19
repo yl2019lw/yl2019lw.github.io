@@ -1,5 +1,5 @@
 ---
-title: vgg
+title: VGG:Very deep convolutional networks for large-scale image recognition
 date: 2019-03-19 14:25:31
 tags:
   - ICLR2015
