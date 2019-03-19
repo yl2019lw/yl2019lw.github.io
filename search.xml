@@ -1,116 +1,835 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2019/03/12/hello-world/"/>
-      <url>/2019/03/12/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="quick-start">Quick Start</h2><h3 id="create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>rcnn</title>
-      <link href="/2019/03/12/rcnn/"/>
-      <url>/2019/03/12/rcnn/</url>
-      
-        <content type="html"><![CDATA[<h1 id="r-cnn">R-CNN</h1><h2 id="selective-search">selective search</h2>]]></content>
-      
-      
+<search>
+  <entry>
+    <title><![CDATA[GoogLeNet:Going Deeper with Convolutions]]></title>
+    <url>%2F2019%2F03%2F19%2Fgooglenet%2F</url>
+    <content type="text"><![CDATA[介绍 GoogLeNet模型由Google团队提出，在ILSVRC-2014比赛中获得分类任务第一名。GoogLeNet设计了Inception模块，也即Inception-V1版本。 Inception Inception模块使用不同大小的卷积核提取特征并组合在一起实现不同尺度的特征融合。 其中1x1,3x3,5x5卷积核使用的padding分别为0,1,2,保证了卷积前后feature map大小完全一致，3x3 max pooling步长为1，可以直接在通道维度拼接不同卷积的结果。 为减少计算量，在3x3及5x5卷积核前引入1x1卷积调整通道数目降低维度, 3x3 max pooling后也引入1x1卷积降维， 如下图所示。 GoogleNet GoogLeNet将相同结构的Inception模块堆叠起来，共22层，模型结构如下： 其中输入为224x224x3, 首先仍然使用传统7x7卷积，然后依据feature map大小引入三个层次的Inception模块，分别为inception(3a,3b,4a,4b,4c,4d,4e,5a,5b)，前面的数字表示相对于原始输入特征大小缩小了2的几次方倍，字母a,b等表示级联的顺序，前一个Inception模块融合后的结果将作为下一个Inception模块的输入。不同层次的Inception模块间通过步长为2的max pooling特征图大小减半。最终通过softmax实现多分类任务。 因网络较深，不利于loss反向传递更新参数，在Inception(4a, 4d) 后引入了两个小的网络进行辅助训练。辅助网络同样进行多分类，不参与模型测试。 模型整体流程见下图： 结果 在ILSVRC-2014分类任务上获得冠军，top-5 error 为6.67%。 参考文献 Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D., ... & Rabinovich, A. (2015). Going deeper with convolutions. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 1-9).]]></content>
       <categories>
-          
-          <category> computer vision </category>
-          
-          <category> detection </category>
-          
+        <category>computer vision</category>
+        <category>classification</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> detection </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>resnet</title>
-      <link href="/2019/03/12/resnet/"/>
-      <url>/2019/03/12/resnet/</url>
-      
-        <content type="html"><![CDATA[<h1 id="resnet">Resnet</h1><h2 id="deep-learning">deep learning</h2>]]></content>
-      
-      
+      <tags>
+        <tag>classification</tag>
+        <tag>CVPR2015</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VGG:Very deep convolutional networks for large-scale image recognition]]></title>
+    <url>%2F2019%2F03%2F19%2Fvgg%2F</url>
+    <content type="text"><![CDATA[介绍 VGG模型来自牛津大学Visual Geometry Group, 其堆叠一系列3x3卷积核，在ILSVRC-2014获得定位任务第一名，分类任务第二名。 架构 模型仅使用3x3及1x1大小的卷积核，3x3为可捕获上下左右信息的最小卷积窗口。所有的3x3卷积有padding=1，步长为1，因此输入输出的特征图大小不变。 池化层窗口大小为2x2,步长为2，每次池化后特征图大小减半。紧接池化后的卷积通道数翻倍，直至最后为512，保持运算的均衡。 两层连续堆叠的3x3卷积与直接5x5卷积有大小相同的感受野，三层连续堆叠的3x3卷积与直接7x7卷积有大小相同的感受野，因此可使用堆叠的较小卷积核来替代较大的卷积。 堆叠的小卷积核相较于单层大卷积核有更强的判别能力。 因堆叠后层数更深，卷积之间有更多的非线性变换(relu), 可增加模型的判别能力。 堆叠的小卷积核相较于单层大卷积核有更少的参数。 如3个3x3通道为C的卷积核参数量为\(3(3^2C^2)=27C^2\), 而1个7x7通道为C的卷积核参数量为\(7^2C^2=49C^2\)。 不同深度的模型配置如下表： 实验 多尺度训练 多模型集成 参考文献 Simonyan, K., & Zisserman, A. (2014). Very deep convolutional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556.]]></content>
       <categories>
-          
-          <category> computer vision </category>
-          
-          <category> classification </category>
-          
+        <category>computer vision</category>
+        <category>classification</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> classification </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>alexnet</title>
-      <link href="/2019/03/12//classification/alexnet/"/>
-      <url>/2019/03/12//classification/alexnet/</url>
-      
-        <content type="html"><![CDATA[<h1 id="alexnet">Alexnet</h1><p>这是一个方程</p><p><span class="math display">\[ E = mc^2 \]</span></p><p>another equation</p><p><span class="math display">\[\begin{align}x &amp;= a +b+c+d\\  &amp;= e +f\\  &amp;= g\end{align}\]</span></p>]]></content>
-      
-      
+      <tags>
+        <tag>classification</tag>
+        <tag>ICLR2015</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[surf]]></title>
+    <url>%2F2019%2F03%2F13%2Fsurf%2F</url>
+    <content type="text"><![CDATA[]]></content>
       <categories>
-          
-          <category> computer vision </category>
-          
-          <category> classification </category>
-          
+        <category>computer vision</category>
+        <category>features</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> classification </tag>
-            
-            <tag> nips </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test_my_site</title>
-      <link href="/2019/02/22/test-my-site/"/>
-      <url>/2019/02/22/test-my-site/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>descriptor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hog]]></title>
+    <url>%2F2019%2F03%2F13%2Fhog%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>features</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>descriptor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[lbp]]></title>
+    <url>%2F2019%2F03%2F13%2Flbp%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>features</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>descriptor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[dpm]]></title>
+    <url>%2F2019%2F03%2F13%2Fdpm%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>features</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>descriptor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sift]]></title>
+    <url>%2F2019%2F03%2F13%2Fsift%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>features</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>descriptor</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[fsr-gan]]></title>
+    <url>%2F2019%2F03%2F13%2Ffsr-gan%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[edsr]]></title>
+    <url>%2F2019%2F03%2F13%2Fedsr%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[srdensenet]]></title>
+    <url>%2F2019%2F03%2F13%2Fsrdensenet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[lapsrn]]></title>
+    <url>%2F2019%2F03%2F13%2Flapsrn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[drrn]]></title>
+    <url>%2F2019%2F03%2F13%2Fdrrn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[rdn]]></title>
+    <url>%2F2019%2F03%2F13%2Frdn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[srgan]]></title>
+    <url>%2F2019%2F03%2F13%2Fsrgan%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[memnet]]></title>
+    <url>%2F2019%2F03%2F13%2Fmemnet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[stn]]></title>
+    <url>%2F2019%2F03%2F13%2Fstn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[espcn]]></title>
+    <url>%2F2019%2F03%2F13%2Fespcn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[drcn]]></title>
+    <url>%2F2019%2F03%2F13%2Fdrcn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vdsr]]></title>
+    <url>%2F2019%2F03%2F13%2Fvdsr%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[srcnn]]></title>
+    <url>%2F2019%2F03%2F13%2Fsrcnn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>super resolution</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>super resolution</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[panet]]></title>
+    <url>%2F2019%2F03%2F13%2Fpanet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[fcis]]></title>
+    <url>%2F2019%2F03%2F13%2Ffcis%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[instance_fcn]]></title>
+    <url>%2F2019%2F03%2F13%2Finstance-fcn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mask_x_rcnn]]></title>
+    <url>%2F2019%2F03%2F13%2Fmask-x-rcnn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mask_rcnn]]></title>
+    <url>%2F2019%2F03%2F13%2Fmask-rcnn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gcn]]></title>
+    <url>%2F2019%2F03%2F13%2Fgcn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[pspnet]]></title>
+    <url>%2F2019%2F03%2F13%2Fpspnet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[refinenet]]></title>
+    <url>%2F2019%2F03%2F13%2Frefinenet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deconvolution]]></title>
+    <url>%2F2019%2F03%2F13%2Fdeconvolution%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[unet]]></title>
+    <url>%2F2019%2F03%2F13%2Funet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[segnet]]></title>
+    <url>%2F2019%2F03%2F13%2Fsegnet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mnc]]></title>
+    <url>%2F2019%2F03%2F13%2Fmnc%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deepmask]]></title>
+    <url>%2F2019%2F03%2F13%2Fdeepmask%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[fcn]]></title>
+    <url>%2F2019%2F03%2F13%2Ffcn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deeplab_v3]]></title>
+    <url>%2F2019%2F03%2F13%2Fdeeplab-v3%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sds]]></title>
+    <url>%2F2019%2F03%2F13%2Fsds%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deeplab_v2]]></title>
+    <url>%2F2019%2F03%2F13%2Fdeeplab-v2%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[deeplab_v1]]></title>
+    <url>%2F2019%2F03%2F13%2Fdeeplab-v1%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>segmentation</category>
+      </categories>
+      <tags>
+        <tag>CVPR2016</tag>
+        <tag>segmentation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[RetinaNet]]></title>
+    <url>%2F2019%2F03%2F13%2Fretinanet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[FPN]]></title>
+    <url>%2F2019%2F03%2F13%2Ffpn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[R-FCN]]></title>
+    <url>%2F2019%2F03%2F13%2Fr-fcn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[fssd]]></title>
+    <url>%2F2019%2F03%2F13%2Ffssd%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[dssd]]></title>
+    <url>%2F2019%2F03%2F13%2Fdssd%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[yolov3]]></title>
+    <url>%2F2019%2F03%2F13%2Fyolov3%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[yolo9000]]></title>
+    <url>%2F2019%2F03%2F13%2Fyolo9000%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[yolo]]></title>
+    <url>%2F2019%2F03%2F13%2Fyolo%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ssd]]></title>
+    <url>%2F2019%2F03%2F13%2Fssd%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[edge-boxes]]></title>
+    <url>%2F2019%2F03%2F13%2Fedge-boxes%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[selective-search]]></title>
+    <url>%2F2019%2F03%2F13%2Fselective-search%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Faster-RCNN]]></title>
+    <url>%2F2019%2F03%2F13%2Ffaster-rcnn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Fast-RCNN]]></title>
+    <url>%2F2019%2F03%2F13%2Ffast-rcnn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sppnet]]></title>
+    <url>%2F2019%2F03%2F13%2Fsppnet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[rcnn]]></title>
+    <url>%2F2019%2F03%2F13%2Frcnn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>detection</category>
+      </categories>
+      <tags>
+        <tag>detection</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[identity-mapping]]></title>
+    <url>%2F2019%2F03%2F12%2Fidentity-mapping%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[stochastic_depth]]></title>
+    <url>%2F2019%2F03%2F12%2Fstochastic-depth%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[resnext]]></title>
+    <url>%2F2019%2F03%2F12%2Fresnext%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[batchnorm]]></title>
+    <url>%2F2019%2F03%2F12%2Fbatchnorm%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[inception-v4]]></title>
+    <url>%2F2019%2F03%2F12%2Finception-v4%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[inception_v3]]></title>
+    <url>%2F2019%2F03%2F12%2Finception-v3%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[wrn]]></title>
+    <url>%2F2019%2F03%2F12%2Fwrn%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>ICLR2015</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[densenet]]></title>
+    <url>%2F2019%2F03%2F12%2Fdensenet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[senet]]></title>
+    <url>%2F2019%2F03%2F12%2Fsenet%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Resnet:Deep Residual Learning for Image Recognition]]></title>
+    <url>%2F2019%2F03%2F12%2Fresnet%2F</url>
+    <content type="text"><![CDATA[Resnet deep learning 架构 参考文献 He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[AlexNet:ImageNet Classification with Deep Convolutional Neural Networks]]></title>
+    <url>%2F2019%2F03%2F12%2Falexnet%2F</url>
+    <content type="text"><![CDATA[介绍 AlexNet根据其作者Alex命名,Alex是深度学习之父Hinton的学生。AlexNet赢得了ILSVRC-2012比赛的冠军，点燃了深度学习之火。 数据集 ImageNet是由斯坦福李飞飞主导发布大规模图像数据集, 包含超过1500万张有标注信息的高清图片，从属于约22000个类别。ILSVRC使用ImageNet的一个子集，共有1000个目标类别，其中约有1200万张用作训练集，5万张用于验证集，15万张用于测试集。 分类任务使用top-1 error和top-5 error两个评价指标。top-1 error指在测试集上预测错误的图片所占的比率，top-5 error指的是在测试集上预测概率最高的五个类别均不包含正确类别的比率。 ImageNet包含大小不同的图片，模型需要固定大小的输入。文章首先把原始图片缩放至短边大小为256，再从中截取256x256的patch。 架构 AlexNet包含8个可学习参数的层，其中5个卷积层，3个全连接层。摘自torchvision仓库的实现如下： 123456789101112131415161718192021222324252627282930313233343536class AlexNet(nn.Module): def __init__(self, num_classes=1000): super(AlexNet, self).__init__() self.features = nn.Sequential( nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2), nn.ReLU(inplace=True), nn.MaxPool2d(kernel_size=3, stride=2), nn.Conv2d(64, 192, kernel_size=5, padding=2), nn.ReLU(inplace=True), nn.MaxPool2d(kernel_size=3, stride=2), nn.Conv2d(192, 384, kernel_size=3, padding=1), nn.ReLU(inplace=True), nn.Conv2d(384, 256, kernel_size=3, padding=1), nn.ReLU(inplace=True), nn.Conv2d(256, 256, kernel_size=3, padding=1), nn.ReLU(inplace=True), nn.MaxPool2d(kernel_size=3, stride=2), ) self.avgpool = nn.AdaptiveAvgPool2d((6, 6)) self.classifier = nn.Sequential( nn.Dropout(), nn.Linear(256 * 6 * 6, 4096), nn.ReLU(inplace=True), nn.Dropout(), nn.Linear(4096, 4096), nn.ReLU(inplace=True), nn.Linear(4096, num_classes), ) def forward(self, x): x = self.features(x) x = self.avgpool(x) x = x.view(x.size(0), 256 * 6 * 6) x = self.classifier(x) return x 文章认为对分类结果有帮助的几个点： 使用Relu f(x) = max(0, x) 多GPU训练 局部响应正则化 后被其它文章证实无用，并且会带来额外计算负担。 重叠池化 实验 数据增广 水平镜像及在256x256图片上密集取224x224 patch。 随机改变RGB通道上亮度值。 Dropout 结果 在ILSVRC—2010上获得top-1 error为37.5%，top-5 error为17.0%。ILSVRC-2012上top-5 error为15.3%，第二名为26.2%。 参考文献 Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. Advances in neural information processing systems, 1097-1105.]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>NIPS2012</tag>
+      </tags>
+  </entry>
 </search>
