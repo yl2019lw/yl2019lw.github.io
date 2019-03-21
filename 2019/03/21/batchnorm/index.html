@@ -108,7 +108,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/batchnorm/batch_norm_single.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/batchnorm/batch_norm_all.png">
-<meta property="og:updated_time" content="2019-03-21T08:15:32.311Z">
+<meta property="og:updated_time" content="2019-03-21T08:39:34.367Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Batch Normalization:Accelerating Deep Neural Network Training by Reducing Internal Covariate Shift">
 <meta name="twitter:description" content="介绍 文章提出Batch Normalization，解决了网络中每层处理单元的输入分布随参数更新变化的问题，也即internal covariate shift，使得能够使用较大的学习率，不用过多关注初始化，减少了使用dropout的必要，能够加快网络的训练和获得更好的性能。 在训练神经网络时，浅层参数的更新会影响后续层的输入，导致后续层需要适应其输入分布的变化。对于sigmoid这类饱和激活函">
@@ -417,7 +417,7 @@
                 
               
 
-              <time title="创建时间：2019-03-21 14:30:15 / 修改时间：16:15:32" itemprop="dateCreated datePublished" datetime="2019-03-21T14:30:15+08:00">2019-03-21</time>
+              <time title="创建时间：2019-03-21 14:30:15 / 修改时间：16:39:34" itemprop="dateCreated datePublished" datetime="2019-03-21T14:30:15+08:00">2019-03-21</time>
             
 
             
@@ -501,6 +501,10 @@
 <img src="/2019/03/21/batchnorm/batch_norm_all.png" width="600" title="batch norm all">
 <h1 id="总结">总结</h1>
 <p>Batch Normalization加快了训练速度，能够获取更好的性能。BN-Inception是增加了batch normaliztion的inception模型，也即使Inception-V2，在ImageNet上获得了top-5 error为4.82%。</p>
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Ioffe, S., & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by reducing internal covariate shift. arXiv preprint arXiv:1502.03167.
+</blockquote>
 
       
     </div>
@@ -718,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#batch-normalization"><span class="nav-number">2.</span> <span class="nav-text">Batch Normalization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#batch-normalization"><span class="nav-number">2.</span> <span class="nav-text">Batch Normalization</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
