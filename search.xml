@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Batch Normalization:Accelerating Deep Neural Network Training by Reducing Internal Covariate Shift]]></title>
+    <url>%2F2019%2F03%2F21%2Fbatchnorm%2F</url>
+    <content type="text"><![CDATA[介绍 文章提出Batch Normalization，解决了网络中每层处理单元的输入分布随参数更新变化的问题，也即internal covariate shift，使得能够使用较大的学习率，不用过多关注初始化，减少了使用dropout的必要，能够加快网络的训练和获得更好的性能。 在训练神经网络时，浅层参数的更新会影响后续层的输入，导致后续层需要适应其输入分布的变化。对于sigmoid这类饱和激活函数而言，当其输入数据落入其饱和区时会导致梯度接近于0，参数更新变小，影响网络收敛速度。 通常我们使用白化操作对输入数据进行预处理，主要是PCA白化和ZCA白化，通过白化操作会去除特征之间的相关性，使得输入分布有相同的均值和方差，但对网络中的每一层数据都进行白化操作成本太高，因此提出了batch normalization，使得网络中每一层处理单元的输入有相同的分布。 Batch Normalization Batch normalization对同一batch内网络中的每一层的每一个特征，首先进行归一化至均值为0，标准差为1，对于d维输入$x = (x^{(1)}, x^{(2)}, ..., x^{(d)}) $ 有： \({\hat{x}}^{(k)} = \frac{ x^{(k)} - E[x^{(k)}] }{\sqrt{Var[x^{(k)}]}}\) 然后还原数据的表达能力： \({\hat{y}}^{(k)} = \gamma^{(k)} \hat{x}^{(k)} + \beta^{(k)}\) 其中\(\gamma^{(k)},\beta^{(k)}\)是第k处需要学习的一对参数。经过上述处理后，对应k处数据有稳定的均值为\(\beta^{(k)}\)，标准差为\(\gamma^{(k)}\)的分布。 最终将网络中每一层中原始的数据\(x^{(k)}\)替换为\(y^{(k)}\)。算法描述见下图： 对于全连接层，针对每个激活的神经元进行处理。对于卷积层，针对每一个feature map学习一对\(\beta^{(k)}\)，\(\gamma^{(k)}\)。 在测试时，网络中每一层的输入分布已经固定，其均值与标准差通过moving average的方式由训练时求得的\(\beta^{(k)}\)，\(\gamma^{(k)}\)计算而来，整体流程如下： 总结 Batch Normalization加快了训练速度，能够获取更好的性能。BN-Inception是增加了batch normaliztion的inception模型，也即使Inception-V2，在ImageNet上获得了top-5 error为4.82%。]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>ICML2015</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Resnet:Deep Residual Learning for Image Recognition]]></title>
+    <url>%2F2019%2F03%2F19%2Fresnet%2F</url>
+    <content type="text"><![CDATA[介绍 文章提出残差网络使得能够更容易地训练出更深层次的神经网络，Resnet模型给出了高至152层的网络，但却比VGG有更小的复杂度。Resnet模型横扫了ILSVRC-2015，COCO-2015上的分类、检测、分割等比赛任务的冠军。 更深的神经网络可能带来更好的性能，但却存在难以训练的退化问题，这并不是因为更深的网络导致了过拟合，而是训练误差都不能得到很好地下降，如下图所示： 退化问题说明了深度模型训练的困难。从理论分析来看，考虑一个浅层网络和在其之上加了更多层的深层网络，对于深层网络可以把额外增加的层训练为恒等映射，其余部分从浅层网络拷贝过来，那么对于深层网络就应该存在方案使得其训练误差可以比相应的浅层网络要小。实际训练网络的情况并非如此，本文使用残差学习解决这个问题。 Deep Residual Learning Residual Learning 假设\(H(x)\)是要通过堆叠的网络层学习的从输入到输出的映射，\(x\)表示输入，如果假定多层网络能够渐近地学习到\(H(x)\)，那么其也应该能学习到\(F(x)=H(x)-x\)。通过残差方式只需要学习\(F(x)\)，原始问题为\(F(x)+x\)，两种方式的学习难易程度却有很大的不同。 Identity Mapping by Shortcuts 残差学习可形式化地表达为\(y=F(x,{W_i})+x\)，其中\(x,y\)是当前整个块的输入和输出，\(F(x,{W_i})\)表示需要学习的残差映射。如上图所示为一个残差building block，包含两层，则\(F=W_2\sigma(W_1x)\)，其中\(\sigma\)表示Relu函数。由公式可以看出，残差方式没有带来额外的参数，也基本没有带来更多地运算，因此可以公平地与相应地plain network进行比较。当\(x\)与\(F\)有相同的维度时，直接进行element-wise相加即可，当维度不同时可对\(x\)投影到匹配的维度后再进行相加，此时有\(y=F(x,{W_i})+W_sx\)。当维度本就相同时也可使用方阵形式的\(W_s\)。 Network Architecture plain network plain network如同VGG一样堆叠3x3卷积网络，遵循两个设计原则： 对于输出的feature map大小一样的层有相同数量的卷积核。 如果输出的feature map大小减半，则卷积核的数量翻倍以保持每层的复杂度。 residual network residual network在前述的plain network上插入shortcut connection。当输入与输出维度相同时，可直接使用identity shortcut。当维度不同时，可仍选择shortcut mapping但进行额外补0以使维度匹配，或者使用projection shortcut。当shortcut connection跨越不同大小的feature map时，projection使用步长为2。 bottleneck 当配置的网络较深时存在参数过多的问题，因此可引入1x1的卷积核来降低维度减少计算量。具体来说，2层的3x3残差块中可由1x1,3x3,1x1堆叠的三层块代替，前面的1x1卷积用来降低维度，后面的1x1用来提升维度以使输入输出维度匹配，如下图所示： architecture 常用resnet有18，34，50，101及152层，其中50层及以上使用bottleneck版本的块。resnet首先使用步长为2的7x7卷积，然后包含四组不同feature map大小的堆叠的残差块，因此最终feature map的大小为输入的1/32。resnet中无全连接层，在最终的feature map上执行全局池化后输入softmax进行分类。不同深度的resnet配置如下表： 参考文献 He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>CVPR2016</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GoogLeNet:Going Deeper with Convolutions]]></title>
     <url>%2F2019%2F03%2F19%2Fgooglenet%2F</url>
     <content type="text"><![CDATA[介绍 GoogLeNet模型由Google团队提出，在ILSVRC-2014比赛中获得分类任务第一名。GoogLeNet设计了Inception模块，也即Inception-V1版本。 Inception Inception模块使用不同大小的卷积核提取特征并组合在一起实现不同尺度的特征融合。 其中1x1,3x3,5x5卷积核使用的padding分别为0,1,2,保证了卷积前后feature map大小完全一致，3x3 max pooling步长为1，可以直接在通道维度拼接不同卷积的结果。 为减少计算量，在3x3及5x5卷积核前引入1x1卷积调整通道数目降低维度, 3x3 max pooling后也引入1x1卷积降维， 如下图所示。 GoogleNet GoogLeNet将相同结构的Inception模块堆叠起来，共22层，模型结构如下： 其中输入为224x224x3, 首先仍然使用传统7x7卷积，然后依据feature map大小引入三个层次的Inception模块，分别为inception(3a,3b,4a,4b,4c,4d,4e,5a,5b)，前面的数字表示相对于原始输入特征大小缩小了2的几次方倍，字母a,b等表示级联的顺序，前一个Inception模块融合后的结果将作为下一个Inception模块的输入。不同层次的Inception模块间通过步长为2的max pooling特征图大小减半。最终通过softmax实现多分类任务。 因网络较深，不利于loss反向传递更新参数，在Inception(4a, 4d) 后引入了两个小的网络进行辅助训练。辅助网络同样进行多分类，不参与模型测试。 模型整体流程见下图： 结果 在ILSVRC-2014分类任务上获得冠军，top-5 error 为6.67%。 参考文献 Szegedy, C., Liu, W., Jia, Y., Sermanet, P., Reed, S., Anguelov, D., ... & Rabinovich, A. (2015). Going deeper with convolutions. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 1-9).]]></content>
@@ -729,19 +755,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[batchnorm]]></title>
-    <url>%2F2019%2F03%2F12%2Fbatchnorm%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>computer vision</category>
-        <category>classification</category>
-      </categories>
-      <tags>
-        <tag>classification</tag>
-        <tag>NIPS2012</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[inception-v4]]></title>
     <url>%2F2019%2F03%2F12%2Finception-v4%2F</url>
     <content type="text"><![CDATA[]]></content>
@@ -804,19 +817,6 @@
       <tags>
         <tag>classification</tag>
         <tag>NIPS2012</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Resnet:Deep Residual Learning for Image Recognition]]></title>
-    <url>%2F2019%2F03%2F12%2Fresnet%2F</url>
-    <content type="text"><![CDATA[Resnet deep learning 架构 参考文献 He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778).]]></content>
-      <categories>
-        <category>computer vision</category>
-        <category>classification</category>
-      </categories>
-      <tags>
-        <tag>classification</tag>
-        <tag>CVPR2016</tag>
       </tags>
   </entry>
   <entry>
