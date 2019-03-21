@@ -43,3 +43,10 @@ ${\hat{y}}^{(k)} = \gamma^{(k)} \hat{x}^{(k)} + \beta^{(k)}$
 
 # 总结
 Batch Normalization加快了训练速度，能够获取更好的性能。BN-Inception是增加了batch normaliztion的inception模型，也即使Inception-V2，在ImageNet上获得了top-5 error为4.82%。
+
+# 参考文献
+{% blockquote %}
+
+Ioffe, S., & Szegedy, C. (2015). Batch normalization: Accelerating deep network training by reducing internal covariate shift. arXiv preprint arXiv:1502.03167.
+
+{% endblockquote %}
