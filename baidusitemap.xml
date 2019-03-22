@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/03/22/identity-mapping/</loc>
+    <lastmod>2019-03-22</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/03/21/batchnorm/</loc>
     <lastmod>2019-03-21</lastmod>
   </url>  <url>
@@ -43,10 +46,10 @@
     <loc>http://yoursite.com/2019/03/13/ssd/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/stn/</loc>
+    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
+    <loc>http://yoursite.com/2019/03/13/stn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/srcnn/</loc>
@@ -61,10 +64,10 @@
     <loc>http://yoursite.com/2019/03/13/sppnet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/12/senet/</loc>
+    <loc>http://yoursite.com/2019/03/13/selective-search/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/selective-search/</loc>
+    <loc>http://yoursite.com/2019/03/12/senet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/segnet/</loc>
@@ -82,19 +85,19 @@
     <loc>http://yoursite.com/2019/03/13/refinenet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/r-fcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/pspnet/</loc>
+    <loc>http://yoursite.com/2019/03/13/panet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/panet/</loc>
+    <loc>http://yoursite.com/2019/03/13/pspnet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/mnc/</loc>
@@ -109,19 +112,16 @@
     <loc>http://yoursite.com/2019/03/13/mask-rcnn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/lapsrn/</loc>
-    <lastmod>2019-03-13</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/2019/03/13/lbp/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/instance-fcn/</loc>
+    <loc>http://yoursite.com/2019/03/13/lapsrn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/12/inception-v4/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/12/identity-mapping/</loc>
+    <loc>http://yoursite.com/2019/03/13/instance-fcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/12/inception-v3/</loc>
@@ -136,31 +136,31 @@
     <loc>http://yoursite.com/2019/03/13/gcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/fpn/</loc>
-    <lastmod>2019-03-13</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fsr-gan/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fpn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fcis/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/faster-rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fast-rcnn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
+    <loc>http://yoursite.com/2019/03/13/faster-rcnn/</loc>
+    <lastmod>2019-03-13</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/03/13/espcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/edsr/</loc>
+    <loc>http://yoursite.com/2019/03/13/edge-boxes/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/edge-boxes/</loc>
+    <loc>http://yoursite.com/2019/03/13/edsr/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/dssd/</loc>
