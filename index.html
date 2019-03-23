@@ -367,6 +367,386 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/wrn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yilang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱学习">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/23/wrn/" class="post-title-link" itemprop="url">Wide Residual Networks</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-23 12:57:10 / 修改时间：12:38:02" itemprop="dateCreated datePublished" datetime="2019-03-23T12:57:10+08:00">2019-03-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/classification/" itemprop="url" rel="index"><span itemprop="name">classification</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍">介绍</h1>
+<p>文章提出了通过扩展神经网络的宽度而不是深度也可以获得良好的性能，同时验证了残差单元中使用dropout的有效性。对于卷积神经网络而言，宽度指的是在每一层中使用的卷积核的数目，即通道这一维度的数目。</p>
+<p>文章使用Resnet作为基本的参考网络结构，为了提高深度模型的表示能力，可以在每个残差单元中加入更多的层，扩大卷积层中卷积核的大小或扩宽卷积核。</p>
+<p>文章使用以下符号标记：</p>
+<ul>
+<li><p>l: deepening factor，每个残差单元内卷积层的数量，对于basic版本Resnet是2，bottleneck版本是3。</p></li>
+<li><p>k: widdening factor，每个卷积层处卷积核的数目是原始的多少倍，原始的网络结构都是1。</p></li>
+<li><p>d: number of blocks, 基本残差单元的数量, 网络正是由一系列基本的残差单元堆叠而成。</p></li>
+<li><p>B(M): B表示一个残差单元，M为此残差单元内的一系列卷积层，卷积核都是方块，残差单元内的卷积层都有相同的通道数。如B(3,3)就是原始basic版本Resnet残差单元，B(1,3,1)是对原始bottleneck版本Resnet残差单元的一个加强。(bottneck先1x1降维后1x1还原维度)</p></li>
+<li><p>n: 网络中全部卷积层的数量。WRN-n-k表示一共有n层，widdening factor为k。</p></li>
+</ul>
+<p>文章通过实验发现网络层有相近数量的参数时模型输出有相近的性能。在网络有不同的深度时加宽网络能连续性地提升性能，同时加深网络和加宽网络会带来更多的参数进而需要更多的数据来防止拟合，同时在残差单元内的卷积层之间使用dropout是有效的，尽管已经使用了Batch Normalization。文章显示了使用16层加宽的网络能够获得媲美1000层的未加宽的性能，同时能够加快训练速度。</p>
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Zagoruyko, S., & Komodakis, N. (2016). Wide residual networks. arXiv preprint arXiv:1605.07146.
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/densenet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yilang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱学习">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/23/densenet/" class="post-title-link" itemprop="url">DenseNet:Densely Connected Convolutional Networks</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-23 12:47:52 / 修改时间：15:27:20" itemprop="dateCreated datePublished" datetime="2019-03-23T12:47:52+08:00">2019-03-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/classification/" itemprop="url" rel="index"><span itemprop="name">classification</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍">介绍</h1>
+<p>文章提出了DenseNet模型，其中Dense指神经网络层与层之间的连接。在常规的卷积神经网络中，L层的网络共有L个连接，在DenseNet中L层的网络有<span class="math inline">\(\frac{L(L+1)}{2}\)</span>个连接。在feature map大小匹配的层中，每一层都把其前面所有层的feature map作为其输入，也把其自己的feature map作为后续所有层的输入，Dense Block如下图所示：</p>
+<img src="/2019/03/23/densenet/denseblock.png" width="400" title="dense block">
+<p>DenseNet因其密集地连接方式，能够缓解梯度消失问题，强化特征传播与特征复用，事实上减少了参数数量。DenseNet中每一层都可以相对直接地获取从loss传来的梯度信号及原始输入信息，更好的信息与梯度流动让模型易于训练。DenseNet在CIFAR-10，CIFAR-100，SVHN，ImageNet等数据集上获得了state-of-the-art表现。</p>
+<h1 id="densenet">DenseNet</h1>
+<p>DenseNet由一系列Dense Block组成，每一个Dense Block内具有相同大小的feature map，不同的feature map大小的Dense Block之间通过Transition layer来连接，如下图所示：</p>
+<img src="/2019/03/23/densenet/densenet.png" title="densenet">
+<ul>
+<li><p>Dense Block</p>
+<p>对于ResNet的残差块有： <span class="math display">\[\begin{equation}
+  x_l = H_l(x_{l-1}) + x_{l-1}
+\end{equation}\]</span> 其中<span class="math inline">\(x_{l-1}\)</span>表示第<span class="math inline">\(l-1\)</span>层的输入，H是由Convluation, Batch Normalization, Relu组合而成的pre-activation残差函数(堆叠顺序为BN-Relu-Conv)。</p>
+<p>Dense Block沿用Resnet的设计，区别为其接受前面所有层的feature map作为输入： <span class="math display">\[\begin{equation}
+  x_l = H_l([x_0, x_1, ..., x_{l-1}])
+\end{equation}\]</span></p>
+<p>其中<span class="math inline">\([x_0, x_1, ..., x_{l-1}]\)</span>表示将0到<span class="math inline">\(l-1\)</span>层的feature map在通道维concat起来。</p></li>
+<li><p>Transition Layer</p>
+<p>Transition layer 连接不同feature map大小的Dense Block，其包含batch normalization, 1x1 conv layer和 2x2 average pooling。</p></li>
+</ul>
+<p>如果<span class="math inline">\(H_l\)</span>产生k个feature map，则第l层将有<span class="math inline">\(k_0+kx(l-1)\)</span>个feature map作为输入，此处k为growth rate。DenseNet与此前的网络不同之处在于可以拥有非常narrow的层获得较好性能，如取k=12。</p>
+<p>尽管每层只产生k个feature map，但其拥有非常多的输入feature map。同bottleneck版本resnet一样，可以先使用1x1卷积来降低维度提高计算效率，指定此种版本为DenseNet-B(BN-Relu-Conv(1x1)-BN-Relu-Conv(3x3))。同时也可以在transition layer降低维度，此种版本为DensetNet-C。</p>
+<p>在ImageNet数据集上运行的类似Resnet结构的Densent组成如下表：</p>
+<img src="/2019/03/23/densenet/architecture.png" title="architecture">
+<p>使用DenseNet在ImageNet运行实验结果如下表，可见Denset有更高的参数使用效率，如DenseNet-201参数与Resnet-34相仿性能却与Resnet-101相差无几。 <img src="/2019/03/23/densenet/imagenet.png" title="imagenet"></p>
+<h1 id="总结">总结</h1>
+<p>DenseNet允许学到的feature map被后续所有层高效地访问，导致很好的特征复用与紧凑的模型。其中loss回传的梯度信息只需要经过很少的transition layer，有更短的路径，这相当于一种Deep Supervision。在Stochastic depth网络中，随机drop一些layer后也相当于创建了不同layer的直接连接，这表明DenseNet也是一种有效的正则化方式。总而言之，DenseNet可以通过更少的参数与计算量获得更佳的性能。</p>
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Huang, G., Liu, Z., Van Der Maaten, L., & Weinberger, K. Q. (2017). Densely connected convolutional networks. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 4700-4708).
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/identity-mapping/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1842,342 +2222,6 @@ Simonyan, K., & Zisserman, A. (2014). Very deep convolutional networks for large
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/dpm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yilang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱学习">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/13/dpm/" class="post-title-link" itemprop="url">dpm</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-13 11:59:00 / 修改时间：12:20:28" itemprop="dateCreated datePublished" datetime="2019-03-13T11:59:00+08:00">2019-03-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/sift/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yilang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱学习">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/13/sift/" class="post-title-link" itemprop="url">sift</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-13 11:58:57 / 修改时间：12:20:28" itemprop="dateCreated datePublished" datetime="2019-03-13T11:58:57+08:00">2019-03-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2292,7 +2336,9 @@ Simonyan, K., & Zisserman, A. (2014). Very deep convolutional networks for large
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
