@@ -367,6 +367,213 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/stochastic-depth/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yilang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱学习">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/23/stochastic-depth/" class="post-title-link" itemprop="url">Deep Networks with Stochastic Depth</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-23 15:39:22 / 修改时间：17:43:24" itemprop="dateCreated datePublished" datetime="2019-03-23T15:39:22+08:00">2019-03-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/classification/" itemprop="url" rel="index"><span itemprop="name">classification</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍">介绍</h1>
+<p>较浅的神经网络表示能力不如较深的网络，但较深的网络相对难以训练，文章提出了stochastic depth方式达到了在训练时使用较浅的网络及在测试时使用较深的网络的效果，最终能大幅减少训练时间并获得性能上的提升。</p>
+<p>测试时错误率的降低可归功于两点：一是缩短了期望的训练网络深度使得前向传播和梯度回传更加便捷，二是此种方式训练可以看作很多不同深度的网络模型进行了集成，可以有效地防止过拟合。</p>
+<h1 id="stochastic-depth">Stochastic Depth</h1>
+<ul>
+<li><p>ResNet architecture</p>
+<p>ResNet基本残差单元如下： <span class="math display">\[\begin{equation}
+  H_l = ReLU(f_l(H_{l-1}) + id(H_{l-1}))
+\end{equation}\]</span> 其中<span class="math inline">\(H_l\)</span>是第l层的输出，<span class="math inline">\(f_l\)</span>是由Conv, Batch Norm堆叠的层，如下图所示：</p></li>
+</ul>
+<img src="/2019/03/23/stochastic-depth/resnet.png" title="resnet">
+<ul>
+<li><p>Stochastic depth</p>
+<p>文章在使用resnet block网络结构基础上，使用stochastic depth减少训练时网络的实际深度，具体而言就是通过随机地以一定概率直接丢弃整块残差单元，然后把相邻块的信息直接相连，此时有： <span class="math display">\[\begin{equation}
+  H_l = ReLU(b_lf_l(H_{l_1}) + id(H_{l-1}))
+\end{equation}\]</span> 其中<span class="math inline">\(b_l\)</span>为伯努利分布随机变量，<span class="math inline">\(p_l = Pr(b_l=1)\)</span>表示第<span class="math inline">\(l\)</span>个Resnet Block被保留的概率，如果<span class="math inline">\(b_l = 1\)</span>则退化到原始Resnet形式，如<span class="math inline">\(b_l = 0\)</span> 则相当于identity function， <span class="math display">\[\begin{equation}
+  H_l = id(H_{l-1})
+\end{equation}\]</span></p></li>
+<li><p>The survival probabilities</p>
+<p><span class="math inline">\(p_l\)</span>为新引入的模型参数，直观地相邻层的<span class="math inline">\(p_l\)</span>值应该很接近。实际上由于浅层用来提取特征并被深层使用，因此浅层被保留的概率应该更大。文章探讨了两种方式，一是设置<span class="math inline">\(p_l = p_L\)</span>，对所有层有均匀的保留概率，好处是只引入一个参数；另外一种方式是线性地衰减保留概率，如初始层<span class="math inline">\(p_0 = 1\)</span>，最深层为<span class="math inline">\(p_L\)</span>，则中间层<span class="math inline">\(l\)</span>被保留的概率为： <span class="math display">\[\begin{equation}
+  p_l = 1 - \frac{l}{L}(1-p_L)
+\end{equation}\]</span> Stochastic depth网络结构如下图：</p></li>
+</ul>
+<img src="/2019/03/23/stochastic-depth/stochastic_depth.png" title="stochastic depth">
+<ul>
+<li><p>Expected network depth</p>
+<p>在训练中模型的实际有效深度为<span class="math inline">\(\hat{L}\)</span>，则其期望值<span class="math inline">\(E(\hat{L}) = \sum_{l=1}^{L}p_l\)</span>。在<span class="math inline">\(p_L = 0.5\)</span>的线性衰减策略下，<span class="math inline">\(E(\hat{L}) = (3L-1)/4\)</span>，对于文章使用的110层的网络，其<span class="math inline">\(L=54\)</span>，实际训练的有效深度约为40，这能显著缓解深层网络中的梯度消失与信息丢失问题。</p></li>
+<li><p>Training time savings</p>
+<p>当一个残差单元被drop时，就不需要为其进行前向及后向传播中的计算，这将大幅提升训练速度。对于上述<span class="math inline">\(p_L=0.5\)</span>的线性衰减网络而言，将节省约25%的训练时间。</p></li>
+<li><p>Implicit model ensemble</p>
+<p>以stochastic depth方式训练时相当于将不同深度的网络模型进行集成。对于<span class="math inline">\(L\)</span>个残差块的网络就有<span class="math inline">\(2^L\)</span>种不同的模型组合可能，每次训练一个batch时就从这<span class="math inline">\(2^L\)</span>中可能中选择一个网络，在测试时则对所有的网络进行平均。</p></li>
+<li><p>Stochastic depth during testing</p>
+<p>在测试时没有残差单元被丢弃，此时根据每个残差块参与训练的期望程度进行计算，测试时的前向传播如下： <span class="math display">\[\begin{equation}
+  H_l^{Test} = ReLU(p_lf_l(H_{l-1}^{Test};W_l) + H_{l-1}^{Test})
+\end{equation}\]</span></p></li>
+</ul>
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Huang, G., Sun, Y., Liu, Z., Sedra, D., & Weinberger, K. Q. (2016, October). Deep networks with stochastic depth. In European conference on computer vision (pp. 646-661). Springer, Cham.
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/wrn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1947,174 +2154,6 @@ Simonyan, K., & Zisserman, A. (2014). Very deep convolutional networks for large
               
 
               <time title="创建时间：2019-03-13 11:59:07 / 修改时间：12:20:28" itemprop="dateCreated datePublished" datetime="2019-03-13T11:59:07+08:00">2019-03-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/lbp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yilang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱学习">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/13/lbp/" class="post-title-link" itemprop="url">lbp</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-13 11:59:03 / 修改时间：12:20:28" itemprop="dateCreated datePublished" datetime="2019-03-13T11:59:03+08:00">2019-03-13</time>
             
 
             

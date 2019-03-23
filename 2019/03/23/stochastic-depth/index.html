@@ -98,20 +98,28 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="爱学习">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="介绍 较浅的神经网络表示能力不如较深的网络，但较深的网络相对难以训练，文章提出了stochastic depth方式达到了在训练时使用较浅的网络及在测试时使用较深的网络的效果，最终能大幅减少训练时间并获得性能上的提升。 测试时错误率的降低可归功于两点：一是缩短了期望的训练网络深度使得前向传播和梯度回传更加便捷，二是此种方式训练可以看作很多不同深度的网络模型进行了集成，可以有效地防止过拟合。 Sto">
+<meta name="keywords" content="classification,ECCV2016">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep Networks with Stochastic Depth">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/stochastic-depth/index.html">
 <meta property="og:site_name" content="爱学习">
+<meta property="og:description" content="介绍 较浅的神经网络表示能力不如较深的网络，但较深的网络相对难以训练，文章提出了stochastic depth方式达到了在训练时使用较浅的网络及在测试时使用较深的网络的效果，最终能大幅减少训练时间并获得性能上的提升。 测试时错误率的降低可归功于两点：一是缩短了期望的训练网络深度使得前向传播和梯度回传更加便捷，二是此种方式训练可以看作很多不同深度的网络模型进行了集成，可以有效地防止过拟合。 Sto">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/stochastic-depth/resnet.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/stochastic-depth/stochastic_depth.png">
+<meta property="og:updated_time" content="2019-03-23T09:43:24.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爱学习">
+<meta name="twitter:title" content="Deep Networks with Stochastic Depth">
+<meta name="twitter:description" content="介绍 较浅的神经网络表示能力不如较深的网络，但较深的网络相对难以训练，文章提出了stochastic depth方式达到了在训练时使用较浅的网络及在测试时使用较深的网络的效果，最终能大幅减少训练时间并获得性能上的提升。 测试时错误率的降低可归功于两点：一是缩短了期望的训练网络深度使得前向传播和梯度回传更加便捷，二是此种方式训练可以看作很多不同深度的网络模型进行了集成，可以有效地防止过拟合。 Sto">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/23/stochastic-depth/resnet.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/stochastic-depth/">
 
 
 
@@ -121,7 +129,7 @@
   };
 </script>
 
-  <title>归档 | 爱学习</title>
+  <title>Deep Networks with Stochastic Depth | 爱学习</title>
   
 
 
@@ -169,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,7 +232,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -346,422 +354,244 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/stochastic-depth/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yilang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱学习">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">Deep Networks with Stochastic Depth
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-23 15:39:22 / 修改时间：17:43:24" itemprop="dateCreated datePublished" datetime="2019-03-23T15:39:22+08:00">2019-03-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        不错! 目前共计 64 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
 
-      
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/classification/" itemprop="url" rel="index"><span itemprop="name">classification</span></a></span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/23/stochastic-depth/" itemprop="url">
+          
             
-              <span itemprop="name">Deep Networks with Stochastic Depth</span>
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-23T15:39:22+08:00" content="2019-03-23">
-          03-23
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
 
+          
 
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/23/wrn/" itemprop="url">
-            
-              <span itemprop="name">Wide Residual Networks</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-23T12:57:10+08:00" content="2019-03-23">
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/23/densenet/" itemprop="url">
-            
-              <span itemprop="name">DenseNet:Densely Connected Convolutional Networks</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-23T12:47:52+08:00" content="2019-03-23">
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="介绍">介绍</h1>
+<p>较浅的神经网络表示能力不如较深的网络，但较深的网络相对难以训练，文章提出了stochastic depth方式达到了在训练时使用较浅的网络及在测试时使用较深的网络的效果，最终能大幅减少训练时间并获得性能上的提升。</p>
+<p>测试时错误率的降低可归功于两点：一是缩短了期望的训练网络深度使得前向传播和梯度回传更加便捷，二是此种方式训练可以看作很多不同深度的网络模型进行了集成，可以有效地防止过拟合。</p>
+<h1 id="stochastic-depth">Stochastic Depth</h1>
+<ul>
+<li><p>ResNet architecture</p>
+<p>ResNet基本残差单元如下： <span class="math display">\[\begin{equation}
+  H_l = ReLU(f_l(H_{l-1}) + id(H_{l-1}))
+\end{equation}\]</span> 其中<span class="math inline">\(H_l\)</span>是第l层的输出，<span class="math inline">\(f_l\)</span>是由Conv, Batch Norm堆叠的层，如下图所示：</p></li>
+</ul>
+<img src="/2019/03/23/stochastic-depth/resnet.png" title="resnet">
+<ul>
+<li><p>Stochastic depth</p>
+<p>文章在使用resnet block网络结构基础上，使用stochastic depth减少训练时网络的实际深度，具体而言就是通过随机地以一定概率直接丢弃整块残差单元，然后把相邻块的信息直接相连，此时有： <span class="math display">\[\begin{equation}
+  H_l = ReLU(b_lf_l(H_{l_1}) + id(H_{l-1}))
+\end{equation}\]</span> 其中<span class="math inline">\(b_l\)</span>为伯努利分布随机变量，<span class="math inline">\(p_l = Pr(b_l=1)\)</span>表示第<span class="math inline">\(l\)</span>个Resnet Block被保留的概率，如果<span class="math inline">\(b_l = 1\)</span>则退化到原始Resnet形式，如<span class="math inline">\(b_l = 0\)</span> 则相当于identity function， <span class="math display">\[\begin{equation}
+  H_l = id(H_{l-1})
+\end{equation}\]</span></p></li>
+<li><p>The survival probabilities</p>
+<p><span class="math inline">\(p_l\)</span>为新引入的模型参数，直观地相邻层的<span class="math inline">\(p_l\)</span>值应该很接近。实际上由于浅层用来提取特征并被深层使用，因此浅层被保留的概率应该更大。文章探讨了两种方式，一是设置<span class="math inline">\(p_l = p_L\)</span>，对所有层有均匀的保留概率，好处是只引入一个参数；另外一种方式是线性地衰减保留概率，如初始层<span class="math inline">\(p_0 = 1\)</span>，最深层为<span class="math inline">\(p_L\)</span>，则中间层<span class="math inline">\(l\)</span>被保留的概率为： <span class="math display">\[\begin{equation}
+  p_l = 1 - \frac{l}{L}(1-p_L)
+\end{equation}\]</span> Stochastic depth网络结构如下图：</p></li>
+</ul>
+<img src="/2019/03/23/stochastic-depth/stochastic_depth.png" title="stochastic depth">
+<ul>
+<li><p>Expected network depth</p>
+<p>在训练中模型的实际有效深度为<span class="math inline">\(\hat{L}\)</span>，则其期望值<span class="math inline">\(E(\hat{L}) = \sum_{l=1}^{L}p_l\)</span>。在<span class="math inline">\(p_L = 0.5\)</span>的线性衰减策略下，<span class="math inline">\(E(\hat{L}) = (3L-1)/4\)</span>，对于文章使用的110层的网络，其<span class="math inline">\(L=54\)</span>，实际训练的有效深度约为40，这能显著缓解深层网络中的梯度消失与信息丢失问题。</p></li>
+<li><p>Training time savings</p>
+<p>当一个残差单元被drop时，就不需要为其进行前向及后向传播中的计算，这将大幅提升训练速度。对于上述<span class="math inline">\(p_L=0.5\)</span>的线性衰减网络而言，将节省约25%的训练时间。</p></li>
+<li><p>Implicit model ensemble</p>
+<p>以stochastic depth方式训练时相当于将不同深度的网络模型进行集成。对于<span class="math inline">\(L\)</span>个残差块的网络就有<span class="math inline">\(2^L\)</span>种不同的模型组合可能，每次训练一个batch时就从这<span class="math inline">\(2^L\)</span>中可能中选择一个网络，在测试时则对所有的网络进行平均。</p></li>
+<li><p>Stochastic depth during testing</p>
+<p>在测试时没有残差单元被丢弃，此时根据每个残差块参与训练的期望程度进行计算，测试时的前向传播如下： <span class="math display">\[\begin{equation}
+  H_l^{Test} = ReLU(p_lf_l(H_{l-1}^{Test};W_l) + H_{l-1}^{Test})
+\end{equation}\]</span></p></li>
+</ul>
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Huang, G., Sun, Y., Liu, Z., Sedra, D., & Weinberger, K. Q. (2016, October). Deep networks with stochastic depth. In European conference on computer vision (pp. 646-661). Springer, Cham.
+</blockquote>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/22/identity-mapping/" itemprop="url">
-            
-              <span itemprop="name">Identity Mappings in Deep Residual Networks</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-22T09:45:43+08:00" content="2019-03-22">
-          03-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/21/batchnorm/" itemprop="url">
-            
-              <span itemprop="name">Batch Normalization:Accelerating Deep Neural Network Training by Reducing Internal Covariate Shift</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-21T14:30:15+08:00" content="2019-03-21">
-          03-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/19/resnet/" itemprop="url">
-            
-              <span itemprop="name">Resnet:Deep Residual Learning for Image Recognition</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-19T20:55:40+08:00" content="2019-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/19/googlenet/" itemprop="url">
-            
-              <span itemprop="name">GoogLeNet:Going Deeper with Convolutions</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-19T16:25:44+08:00" content="2019-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/19/vgg/" itemprop="url">
-            
-              <span itemprop="name">VGG:Very deep convolutional networks for large-scale image recognition</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-19T14:25:31+08:00" content="2019-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/13/surf/" itemprop="url">
-            
-              <span itemprop="name">surf</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-13T11:59:10+08:00" content="2019-03-13">
-          03-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/13/hog/" itemprop="url">
-            
-              <span itemprop="name">hog</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-13T11:59:07+08:00" content="2019-03-13">
-          03-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/classification/" rel="tag"># classification</a>
+          
+            <a href="/tags/ECCV2016/" rel="tag"># ECCV2016</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/23/wrn/" rel="next" title="Wide Residual Networks">
+                <i class="fa fa-chevron-left"></i> Wide Residual Networks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/7/">7</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -781,8 +611,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -892,6 +731,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stochastic-depth"><span class="nav-number">2.</span> <span class="nav-text">Stochastic Depth</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1023,6 +879,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -1038,6 +898,8 @@
 
   
 
+
+  
 
 
   
@@ -1375,6 +1237,53 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
   
 
 

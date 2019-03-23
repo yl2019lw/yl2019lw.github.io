@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Deep Networks with Stochastic Depth]]></title>
+    <url>%2F2019%2F03%2F23%2Fstochastic-depth%2F</url>
+    <content type="text"><![CDATA[介绍 较浅的神经网络表示能力不如较深的网络，但较深的网络相对难以训练，文章提出了stochastic depth方式达到了在训练时使用较浅的网络及在测试时使用较深的网络的效果，最终能大幅减少训练时间并获得性能上的提升。 测试时错误率的降低可归功于两点：一是缩短了期望的训练网络深度使得前向传播和梯度回传更加便捷，二是此种方式训练可以看作很多不同深度的网络模型进行了集成，可以有效地防止过拟合。 Stochastic Depth ResNet architecture ResNet基本残差单元如下： \[\begin{equation} H_l = ReLU(f_l(H_{l-1}) + id(H_{l-1})) \end{equation}\] 其中\(H_l\)是第l层的输出，\(f_l\)是由Conv, Batch Norm堆叠的层，如下图所示： Stochastic depth 文章在使用resnet block网络结构基础上，使用stochastic depth减少训练时网络的实际深度，具体而言就是通过随机地以一定概率直接丢弃整块残差单元，然后把相邻块的信息直接相连，此时有： \[\begin{equation} H_l = ReLU(b_lf_l(H_{l_1}) + id(H_{l-1})) \end{equation}\] 其中\(b_l\)为伯努利分布随机变量，\(p_l = Pr(b_l=1)\)表示第\(l\)个Resnet Block被保留的概率，如果\(b_l = 1\)则退化到原始Resnet形式，如\(b_l = 0\) 则相当于identity function， \[\begin{equation} H_l = id(H_{l-1}) \end{equation}\] The survival probabilities \(p_l\)为新引入的模型参数，直观地相邻层的\(p_l\)值应该很接近。实际上由于浅层用来提取特征并被深层使用，因此浅层被保留的概率应该更大。文章探讨了两种方式，一是设置\(p_l = p_L\)，对所有层有均匀的保留概率，好处是只引入一个参数；另外一种方式是线性地衰减保留概率，如初始层\(p_0 = 1\)，最深层为\(p_L\)，则中间层\(l\)被保留的概率为： \[\begin{equation} p_l = 1 - \frac{l}{L}(1-p_L) \end{equation}\] Stochastic depth网络结构如下图： Expected network depth 在训练中模型的实际有效深度为\(\hat{L}\)，则其期望值\(E(\hat{L}) = \sum_{l=1}^{L}p_l\)。在\(p_L = 0.5\)的线性衰减策略下，\(E(\hat{L}) = (3L-1)/4\)，对于文章使用的110层的网络，其\(L=54\)，实际训练的有效深度约为40，这能显著缓解深层网络中的梯度消失与信息丢失问题。 Training time savings 当一个残差单元被drop时，就不需要为其进行前向及后向传播中的计算，这将大幅提升训练速度。对于上述\(p_L=0.5\)的线性衰减网络而言，将节省约25%的训练时间。 Implicit model ensemble 以stochastic depth方式训练时相当于将不同深度的网络模型进行集成。对于\(L\)个残差块的网络就有\(2^L\)种不同的模型组合可能，每次训练一个batch时就从这\(2^L\)中可能中选择一个网络，在测试时则对所有的网络进行平均。 Stochastic depth during testing 在测试时没有残差单元被丢弃，此时根据每个残差块参与训练的期望程度进行计算，测试时的前向传播如下： \[\begin{equation} H_l^{Test} = ReLU(p_lf_l(H_{l-1}^{Test};W_l) + H_{l-1}^{Test}) \end{equation}\] 参考文献 Huang, G., Sun, Y., Liu, Z., Sedra, D., & Weinberger, K. Q. (2016, October). Deep networks with stochastic depth. In European conference on computer vision (pp. 646-661). Springer, Cham.]]></content>
+      <categories>
+        <category>computer vision</category>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+        <tag>ECCV2016</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Wide Residual Networks]]></title>
     <url>%2F2019%2F03%2F23%2Fwrn%2F</url>
     <content type="text"><![CDATA[介绍 文章提出了通过扩展神经网络的宽度而不是深度也可以获得良好的性能，同时验证了残差单元中使用dropout的有效性。对于卷积神经网络而言，宽度指的是在每一层中使用的卷积核的数目，即通道这一维度的数目。 文章使用Resnet作为基本的参考网络结构，为了提高深度模型的表示能力，可以在每个残差单元中加入更多的层，扩大卷积层中卷积核的大小或扩宽卷积核。 文章使用以下符号标记： l: deepening factor，每个残差单元内卷积层的数量，对于basic版本Resnet是2，bottleneck版本是3。 k: widdening factor，每个卷积层处卷积核的数目是原始的多少倍，原始的网络结构都是1。 d: number of blocks, 基本残差单元的数量, 网络正是由一系列基本的残差单元堆叠而成。 B(M): B表示一个残差单元，M为此残差单元内的一系列卷积层，卷积核都是方块，残差单元内的卷积层都有相同的通道数。如B(3,3)就是原始basic版本Resnet残差单元，B(1,3,1)是对原始bottleneck版本Resnet残差单元的一个加强。(bottneck先1x1降维后1x1还原维度) n: 网络中全部卷积层的数量。WRN-n-k表示一共有n层，widdening factor为k。 文章通过实验发现网络层有相近数量的参数时模型输出有相近的性能。在网络有不同的深度时加宽网络能连续性地提升性能，同时加深网络和加宽网络会带来更多的参数进而需要更多的数据来防止拟合，同时在残差单元内的卷积层之间使用dropout是有效的，尽管已经使用了Batch Normalization。文章显示了使用16层加宽的网络能够获得媲美1000层的未加宽的性能，同时能够加快训练速度。 参考文献 Zagoruyko, S., & Komodakis, N. (2016). Wide residual networks. arXiv preprint arXiv:1605.07146.]]></content>
@@ -751,19 +764,6 @@
       <tags>
         <tag>detection</tag>
         <tag>CVPR2016</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[stochastic_depth]]></title>
-    <url>%2F2019%2F03%2F12%2Fstochastic-depth%2F</url>
-    <content type="text"><![CDATA[]]></content>
-      <categories>
-        <category>computer vision</category>
-        <category>classification</category>
-      </categories>
-      <tags>
-        <tag>classification</tag>
-        <tag>NIPS2012</tag>
       </tags>
   </entry>
   <entry>
