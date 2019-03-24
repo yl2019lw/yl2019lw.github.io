@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/2019/03/23/stochastic-depth/</loc>
-    <lastmod>2019-03-23</lastmod>
+    <loc>http://yoursite.com/2019/03/24/senet/</loc>
+    <lastmod>2019-03-24</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/23/densenet/</loc>
+    <lastmod>2019-03-24</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/03/23/stochastic-depth/</loc>
     <lastmod>2019-03-23</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/23/wrn/</loc>
@@ -61,22 +64,19 @@
     <loc>http://yoursite.com/2019/03/13/srdensenet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/sppnet/</loc>
+    <loc>http://yoursite.com/2019/03/13/sift/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/sift/</loc>
+    <loc>http://yoursite.com/2019/03/13/sppnet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/selective-search/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/12/senet/</loc>
+    <loc>http://yoursite.com/2019/03/13/sds/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/segnet/</loc>
-    <lastmod>2019-03-13</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/sds/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/retinanet/</loc>
@@ -88,10 +88,10 @@
     <loc>http://yoursite.com/2019/03/13/refinenet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/r-fcn/</loc>
@@ -121,10 +121,10 @@
     <loc>http://yoursite.com/2019/03/13/lbp/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/12/inception-v4/</loc>
+    <loc>http://yoursite.com/2019/03/13/instance-fcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/instance-fcn/</loc>
+    <loc>http://yoursite.com/2019/03/12/inception-v4/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/12/inception-v3/</loc>
@@ -133,10 +133,10 @@
     <loc>http://yoursite.com/2019/03/13/hog/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fssd/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/fssd/</loc>
+    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fsr-gan/</loc>
@@ -145,10 +145,10 @@
     <loc>http://yoursite.com/2019/03/13/fpn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fcis/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/fcis/</loc>
+    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fast-rcnn/</loc>
@@ -184,10 +184,10 @@
     <loc>http://yoursite.com/2019/03/13/deeplab-v3/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/deeplab-v2/</loc>
+    <loc>http://yoursite.com/2019/03/13/deeplab-v1/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/deeplab-v1/</loc>
+    <loc>http://yoursite.com/2019/03/13/deeplab-v2/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/deconvolution/</loc>

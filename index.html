@@ -367,6 +367,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/senet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yilang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="爱学习">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/24/senet/" class="post-title-link" itemprop="url">SENet:Squeeze-and-Excitation Networks</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-24 12:00:02 / 修改时间：13:46:08" itemprop="dateCreated datePublished" datetime="2019-03-24T12:00:02+08:00">2019-03-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/classification/" itemprop="url" rel="index"><span itemprop="name">classification</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍">介绍</h1>
+<p>文章聚焦在channel之间特征相关性来提升深度网络的表达能力，提出了Squeeze-and-Excitation block来对不同channel的特征进行重标定。文章使用SENet结构获得了ILSVRC-2017分类任务的冠军，在ImageNet数据集上top-5 error低至2.251%。</p>
+<p>基本的SE block如下所示：</p>
+<img src="/2019/03/24/senet/seblock.png" title="squeeze excitation block">
+<p>对于网络中的变换<span class="math inline">\(F_{tr}: X \to U, X \in \mathbb{R}^{H&#39; \times W&#39; \times C&#39;}, U \in \mathbb{R}^{H \times W \times C}\)</span>，我们可以构造SE block来进行特征标定。首先把特征<span class="math inline">\(U\)</span>通过一个squeeze操作，即把feature map在<span class="math inline">\(H \times W\)</span>上进行聚合得到一个channel descriptor。此channel descriptor包含了channel-wise特征响应的全局分布，能够使得全局感受野的信息被网络的低层所利用。然后执行excitation操作，对每个channel通过self-gating机制生成权重，最终使用不同channel的权重对原始U进行处理，把得到的结果替代U作为后续层的输入。</p>
+<p>SENet可由许多SE Block堆叠而成，SE Block可以在原始网络的任意深度处作就地替换。在浅层中SE Block更多了excite类别无关信息，在深层中逐渐特化。</p>
+<h1 id="squeeze-and-excitation-blocks">Squeeze-and-Excitation Blocks</h1>
+<p>对于网络中的变换<span class="math inline">\(F_{tr}: X \to U, X \in \mathbb{R}^{H&#39; \times W&#39; \times C&#39;}, U \in \mathbb{R}^{H \times W \times C}\)</span>，我们简化<span class="math inline">\(F_{tr}\)</span>为一系列卷积操作。命<span class="math inline">\(V = [v_1, v_2, ...v_C]\)</span>表示对应的卷积核，<span class="math inline">\(F_{tr}\)</span>的输出<span class="math inline">\(U = [u_1, u_2, ...u_C]\)</span>，其中 <span class="math display">\[\begin{equation}
+    u_c = v_c * X = \sum_{s=1}^{C&#39;} v_c^s * x^s
+\end{equation}\]</span> 其中*表示卷积操作，<span class="math inline">\(v_c = [v_c^1, v_c^2, ..., v_c^{C&#39;}], X = [x^1, x^2,...,x^{C&#39;}]\)</span>。由上式可见输出是由输入的每一个channel处都参与summation得到,因此已隐含有channel依赖信息，但此信息与空间位置混在一起。文章的目的在于提升网络对于有用特征的灵敏度，同时抑制无用信息，通过squeeze和excitation操作来显式地建模不同通道特征之间相关性，进而进行特征标定。</p>
+<ul>
+<li><p>Squeeze: Global Information Embedding</p>
+<p>由于原卷积操作只作用于局部感受野，不能利用全局上下文信息，因此首先使用squeeze操作来将全局位置信息编码入channel descriptor。这是通过全局平均池化的方式来得到<span class="math inline">\(z \in \mathbb{R}^C\)</span>，其中第c个元素为： <span class="math display">\[\begin{equation}
+  z_c = F_{sq}(u_c) = \frac{1}{H \times W} \sum_{i=1}{H}\sum{j=1}{W}u_c(i, j)
+\end{equation}\]</span></p></li>
+<li><p>Excitation: Adaptive Recalibration</p>
+<p>然后使用excitation捕获channel-wise依赖： <span class="math display">\[\begin{equation}
+  s = F_{ex}(z, W) = \sigma(g(z, W)) = \sigma(W_2\sigma(W_1z))
+\end{equation}\]</span> 其中<span class="math inline">\(\sigma\)</span>表示Relu函数，<span class="math inline">\(W_1 \in \mathbb{R}^{\frac{C}{r} \times C}, W_2 \in \mathbb{R}^{C \times \frac{C}{r}}\)</span>,即通过两个全连接层来学习非线性权重，其中一个以比率<span class="math inline">\(r\)</span>降低维度，另一个进行还原。最终标定后输出为： <span class="math display">\[\begin{equation}
+  \widetilde{x}_c = F_{scale}(u_c, s_c) = s_c \cdot u_c
+\end{equation}\]</span> 其中<span class="math inline">\(\widetilde{X} = [\widetilde{x}_1, \widetilde{x}_2, ..., \widetilde{x}_C]\)</span>, <span class="math inline">\(F_{scale}(u_c, s_c)\)</span>为在特征图<span class="math inline">\(u_c \in \mathbb{R}^{H \times W}\)</span>与标量<span class="math inline">\(s_c\)</span>之间channel-wise乘法。</p></li>
+</ul>
+<p>SENet可由SE Block对原网络结构改造而成，如ResNet残差单元及Inception模块修改后基本结构如下：</p>
+<img src="/2019/03/24/senet/schema.png" title="schema 400">
+<h1 id="senet">SENet</h1>
+<p>SE-ResNet-50及SE-ResNext-50整体组成单元见下表：</p>
+<img src="/2019/03/24/senet/se-resnet.png" title="se resnet">
+<p>可见仅在原残差块内增加2个全连接层,额外引入参数数量为： <span class="math display">\[\begin{equation}
+    \frac{2}{r}\sum_{s=1}^{S}N_s \cdot C_s^2
+\end{equation}\]</span> 其中r为reduction ratio，<span class="math inline">\(S\)</span>为不同feature map大小的阶段数目，<span class="math inline">\(C_s\)</span>为第<span class="math inline">\(s\)</span>个阶段的输入特征通道维度，<span class="math inline">\(N_s\)</span>为每个阶段的重复残差块数量。</p>
+<p>在ImageNet数据集上运行结果如下：</p>
+<img src="/2019/03/24/senet/imagenet.png" title="imagenet">
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Hu, J., Shen, L., & Sun, G. (2018). Squeeze-and-excitation networks. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 7132-7141).
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/stochastic-depth/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -802,12 +1005,24 @@ Zagoruyko, S., & Komodakis, N. (2016). Wide residual networks. arXiv preprint ar
                 
               
 
-              <time title="创建时间：2019-03-23 12:47:52 / 修改时间：15:27:20" itemprop="dateCreated datePublished" datetime="2019-03-23T12:47:52+08:00">2019-03-23</time>
+              <time title="创建时间：2019-03-23 12:47:52" itemprop="dateCreated datePublished" datetime="2019-03-23T12:47:52+08:00">2019-03-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-24 12:04:24" itemprop="dateModified" datetime="2019-03-24T12:04:24+08:00">2019-03-24</time>
               
             
           </span>
@@ -887,7 +1102,7 @@ Zagoruyko, S., & Komodakis, N. (2016). Wide residual networks. arXiv preprint ar
 <li><p>Transition Layer</p>
 <p>Transition layer 连接不同feature map大小的Dense Block，其包含batch normalization, 1x1 conv layer和 2x2 average pooling。</p></li>
 </ul>
-<p>如果<span class="math inline">\(H_l\)</span>产生k个feature map，则第l层将有<span class="math inline">\(k_0+kx(l-1)\)</span>个feature map作为输入，此处k为growth rate。DenseNet与此前的网络不同之处在于可以拥有非常narrow的层获得较好性能，如取k=12。</p>
+<p>如果<span class="math inline">\(H_l\)</span>产生k个feature map，则第l层将有<span class="math inline">\(k_0+k(l-1)\)</span>个feature map作为输入，此处k为growth rate。DenseNet与此前的网络不同之处在于可以拥有非常narrow的层获得较好性能，如取k=12。</p>
 <p>尽管每层只产生k个feature map，但其拥有非常多的输入feature map。同bottleneck版本resnet一样，可以先使用1x1卷积来降低维度提高计算效率，指定此种版本为DenseNet-B(BN-Relu-Conv(1x1)-BN-Relu-Conv(3x3))。同时也可以在transition layer降低维度，此种版本为DensetNet-C。</p>
 <p>在ImageNet数据集上运行的类似Resnet结构的Densent组成如下表：</p>
 <img src="/2019/03/23/densenet/architecture.png" title="architecture">
@@ -2093,174 +2308,6 @@ Simonyan, K., & Zisserman, A. (2014). Very deep convolutional networks for large
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/hog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yilang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="爱学习">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/13/hog/" class="post-title-link" itemprop="url">hog</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-13 11:59:07 / 修改时间：12:20:28" itemprop="dateCreated datePublished" datetime="2019-03-13T11:59:07+08:00">2019-03-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/" itemprop="url" rel="index"><span itemprop="name">computer vision</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-vision/features/" itemprop="url" rel="index"><span itemprop="name">features</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2377,7 +2424,9 @@ Simonyan, K., & Zisserman, A. (2014). Very deep convolutional networks for large
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

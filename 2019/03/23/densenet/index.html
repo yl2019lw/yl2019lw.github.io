@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/23/densenet/densenet.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/23/densenet/architecture.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/23/densenet/imagenet.png">
-<meta property="og:updated_time" content="2019-03-23T07:27:20.696Z">
+<meta property="og:updated_time" content="2019-03-24T04:04:24.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DenseNet:Densely Connected Convolutional Networks">
 <meta name="twitter:description" content="介绍 文章提出了DenseNet模型，其中Dense指神经网络层与层之间的连接。在常规的卷积神经网络中，L层的网络共有L个连接，在DenseNet中L层的网络有\(\frac{L(L+1)}{2}\)个连接。在feature map大小匹配的层中，每一层都把其前面所有层的feature map作为其输入，也把其自己的feature map作为后续所有层的输入，Dense Block如下图所示：">
@@ -419,12 +419,24 @@
                 
               
 
-              <time title="创建时间：2019-03-23 12:47:52 / 修改时间：15:27:20" itemprop="dateCreated datePublished" datetime="2019-03-23T12:47:52+08:00">2019-03-23</time>
+              <time title="创建时间：2019-03-23 12:47:52" itemprop="dateCreated datePublished" datetime="2019-03-23T12:47:52+08:00">2019-03-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-24 12:04:24" itemprop="dateModified" datetime="2019-03-24T12:04:24+08:00">2019-03-24</time>
               
             
           </span>
@@ -502,7 +514,7 @@
 <li><p>Transition Layer</p>
 <p>Transition layer 连接不同feature map大小的Dense Block，其包含batch normalization, 1x1 conv layer和 2x2 average pooling。</p></li>
 </ul>
-<p>如果<span class="math inline">\(H_l\)</span>产生k个feature map，则第l层将有<span class="math inline">\(k_0+kx(l-1)\)</span>个feature map作为输入，此处k为growth rate。DenseNet与此前的网络不同之处在于可以拥有非常narrow的层获得较好性能，如取k=12。</p>
+<p>如果<span class="math inline">\(H_l\)</span>产生k个feature map，则第l层将有<span class="math inline">\(k_0+k(l-1)\)</span>个feature map作为输入，此处k为growth rate。DenseNet与此前的网络不同之处在于可以拥有非常narrow的层获得较好性能，如取k=12。</p>
 <p>尽管每层只产生k个feature map，但其拥有非常多的输入feature map。同bottleneck版本resnet一样，可以先使用1x1卷积来降低维度提高计算效率，指定此种版本为DenseNet-B(BN-Relu-Conv(1x1)-BN-Relu-Conv(3x3))。同时也可以在transition layer降低维度，此种版本为DensetNet-C。</p>
 <p>在ImageNet数据集上运行的类似Resnet结构的Densent组成如下表：</p>
 <img src="/2019/03/23/densenet/architecture.png" title="architecture">
@@ -702,7 +714,9 @@ Huang, G., Liu, Z., Van Der Maaten, L., & Weinberger, K. Q. (2017). Densely conn
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
