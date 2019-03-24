@@ -43,7 +43,7 @@ DenseNet由一系列Dense Block组成，每一个Dense Block内具有相同大�
 
     Transition layer 连接不同feature map大小的Dense Block，其包含batch normalization, 1x1 conv layer和 2x2 average pooling。
 
-如果$H_l$产生k个feature map，则第l层将有$k_0+kx(l-1)$个feature map作为输入，此处k为growth rate。DenseNet与此前的网络不同之处在于可以拥有非常narrow的层获得较好性能，如取k=12。
+如果$H_l$产生k个feature map，则第l层将有$k_0+k(l-1)$个feature map作为输入，此处k为growth rate。DenseNet与此前的网络不同之处在于可以拥有非常narrow的层获得较好性能，如取k=12。
 
 尽管每层只产生k个feature map，但其拥有非常多的输入feature map。同bottleneck版本resnet一样，可以先使用1x1卷积来降低维度提高计算效率，指定此种版本为DenseNet-B(BN-Relu-Conv(1x1)-BN-Relu-Conv(3x3))。同时也可以在transition layer降低维度，此种版本为DensetNet-C。
 
