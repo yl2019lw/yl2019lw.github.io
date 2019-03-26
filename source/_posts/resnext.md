@@ -57,7 +57,7 @@ ResNext块有如下等价形式，实现中采用第三种方式：
 * performance
 
     与几个优秀模型在ImageNet数据集上的比较：
-{$ img /2019/03/26/resnext/imagenet_1k.png 600 imagenet 1000 result %}
+{% img /2019/03/26/resnext/imagenet_1k.png 600 imagenet 1000 result %}
 
 # 参考文献
 {% blockquote %}
