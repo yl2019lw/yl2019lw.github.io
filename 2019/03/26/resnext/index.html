@@ -98,22 +98,34 @@
 
 
 
-  <meta name="keywords" content="classification,NIPS2012">
+  <meta name="description" content="介绍 文章提出了ResNext模型，其结合了Resnet和Inception结构的思想，通过聚合一系列结构相同的块，达到了以更少的参数获得更佳的性能。其中引入了一个新的维度来描述模型复杂程度，Cardinality,指每个处理单元中拓扑结构相同的块的个数，ResNext中Next指的就是这个next dimension。相较于增加模型的深度和宽度，增加模型的cardinality是一种更有效地增加">
+<meta name="keywords" content="classification,CVPR2017">
 <meta property="og:type" content="article">
-<meta property="og:title" content="inception_v3">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/inception-v3/index.html">
+<meta property="og:title" content="ResNeXt:Aggregated Residual Transformations for Deep Neural Networks">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/resnext/index.html">
 <meta property="og:site_name" content="爱学习">
+<meta property="og:description" content="介绍 文章提出了ResNext模型，其结合了Resnet和Inception结构的思想，通过聚合一系列结构相同的块，达到了以更少的参数获得更佳的性能。其中引入了一个新的维度来描述模型复杂程度，Cardinality,指每个处理单元中拓扑结构相同的块的个数，ResNext中Next指的就是这个next dimension。相较于增加模型的深度和宽度，增加模型的cardinality是一种更有效地增加">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T04:20:28.790Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/block.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/equivalent.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/cardinality_width_relation.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/resnext50.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/cardinality_width_result.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/deeper_wider.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/residual.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/26/resnext/imagenet_1k.png">
+<meta property="og:updated_time" content="2019-03-27T04:11:12.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="inception_v3">
+<meta name="twitter:title" content="ResNeXt:Aggregated Residual Transformations for Deep Neural Networks">
+<meta name="twitter:description" content="介绍 文章提出了ResNext模型，其结合了Resnet和Inception结构的思想，通过聚合一系列结构相同的块，达到了以更少的参数获得更佳的性能。其中引入了一个新的维度来描述模型复杂程度，Cardinality,指每个处理单元中拓扑结构相同的块的个数，ResNext中Next指的就是这个next dimension。相较于增加模型的深度和宽度，增加模型的cardinality是一种更有效地增加">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/26/resnext/block.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/12/inception-v3/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/resnext/">
 
 
 
@@ -123,7 +135,7 @@
   };
 </script>
 
-  <title>inception_v3 | 爱学习</title>
+  <title>ResNeXt:Aggregated Residual Transformations for Deep Neural Networks | 爱学习</title>
   
 
 
@@ -368,7 +380,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/inception-v3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/resnext/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yilang">
@@ -385,7 +397,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">inception_v3
+          <h1 class="post-title" itemprop="name headline">ResNeXt:Aggregated Residual Transformations for Deep Neural Networks
 
               
             
@@ -411,7 +423,7 @@
                 
               
 
-              <time title="创建时间：2019-03-12 16:29:46" itemprop="dateCreated datePublished" datetime="2019-03-12T16:29:46+08:00">2019-03-12</time>
+              <time title="创建时间：2019-03-26 21:36:31" itemprop="dateCreated datePublished" datetime="2019-03-26T21:36:31+08:00">2019-03-26</time>
             
 
             
@@ -428,7 +440,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-13 12:20:28" itemprop="dateModified" datetime="2019-03-13T12:20:28+08:00">2019-03-13</time>
+                <time title="修改时间：2019-03-27 12:11:12" itemprop="dateModified" datetime="2019-03-27T12:11:12+08:00">2019-03-27</time>
               
             
           </span>
@@ -463,6 +475,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/03/26/resnext/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/26/resnext/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -487,7 +512,35 @@
       
 
       
-        
+        <h1 id="介绍">介绍</h1>
+<p>文章提出了ResNext模型，其结合了Resnet和Inception结构的思想，通过聚合一系列结构相同的块，达到了以更少的参数获得更佳的性能。其中引入了一个新的维度来描述模型复杂程度，Cardinality,指每个处理单元中拓扑结构相同的块的个数，ResNext中Next指的就是这个next dimension。相较于增加模型的深度和宽度，增加模型的cardinality是一种更有效地增加模型表达能力的方式。ResNext模型最终获得ILSVRC-2016上分类任务第二名。</p>
+<h1 id="resnext">ResNext</h1>
+<p>ResNext基本块结构如下：</p>
+<img src="/2019/03/26/resnext/block.png" width="600" title="resnext block">
+<p>左边为ResNet，右边为ResNext，参考了Inception多分支结构，但不同分支拓扑结构相同。二者具有大致相同的参数量和计算复杂度。</p>
+<p>ResNext块有如下等价形式，实现中采用第三种方式：</p>
+<img src="/2019/03/26/resnext/equivalent.png" title="equivalent">
+<p>其中每一层标记为输入通道，卷积大小，输出通道。在相应通道维度进行拼接可见以上三种形式是等价的。</p>
+<p>近似复杂度的cardinality与width关系如下：</p>
+<img src="/2019/03/26/resnext/cardinality_width_relation.png" width="600" title="cardinality width relation">
+<p>堆叠而成的ResNext-50 结构如下表：</p>
+<img src="/2019/03/26/resnext/resnext50.png" width="600" title="resnext-50">
+<p>其中，ResNext-50与ResNet-50参数量和计算复杂度相近。</p>
+<h1 id="experiments">Experiments</h1>
+<ul>
+<li><p>Cardinality vs Width</p>
+<p>增加基本块内的cardinality比增加块内width更有效，如下表所示(保持复杂度)： <img src="/2019/03/26/resnext/cardinality_width_result.png" width="600" title="cardinality width result"></p></li>
+<li><p>Increasing Cardinality vs Deeper/Wider</p>
+<p>增加cardinality也比加深或加宽网络有更有效的表示能力，32x4d版ResNext-101甚至比其多一倍复杂度的ResNext-200结果还要好。 <img src="/2019/03/26/resnext/deeper_wider.png" width="600" title="increasing cardinality vs deeper wider"></p></li>
+<li><p>Residual connections</p>
+<p>残差连接也很重要： <img src="/2019/03/26/resnext/residual.png" width="600" title="residual connections"></p></li>
+<li><p>performance</p>
+<p>与几个优秀模型在ImageNet数据集上的比较： <img src="/2019/03/26/resnext/imagenet_1k.png" width="600" title="imagenet 1000 result"></p></li>
+</ul>
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Xie, S., Girshick, R., Dollár, P., Tu, Z., & He, K. (2017). Aggregated residual transformations for deep neural networks. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 1492-1500).
+</blockquote>
 
       
     </div>
@@ -513,7 +566,7 @@
           
             <a href="/tags/classification/" rel="tag"># classification</a>
           
-            <a href="/tags/NIPS2012/" rel="tag"># NIPS2012</a>
+            <a href="/tags/CVPR2017/" rel="tag"># CVPR2017</a>
           
         </div>
       
@@ -526,8 +579,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/alexnet/" rel="next" title="AlexNet:ImageNet Classification with Deep Convolutional Neural Networks">
-                <i class="fa fa-chevron-left"></i> AlexNet:ImageNet Classification with Deep Convolutional Neural Networks
+              <a href="/2019/03/25/inception-v4/" rel="next" title="Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning">
+                <i class="fa fa-chevron-left"></i> Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning
               </a>
             
           </div>
@@ -535,10 +588,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/12/inception-v4/" rel="prev" title="inception-v4">
-                inception-v4 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,6 +608,10 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
 
   
 
@@ -582,8 +635,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -670,7 +732,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -695,6 +759,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#resnext"><span class="nav-number">2.</span> <span class="nav-text">ResNext</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#experiments"><span class="nav-number">3.</span> <span class="nav-text">Experiments</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -844,6 +925,36 @@
   
 
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'dCzi3pJRkIMYrUWLmVoLYyoL-gzGzoHsz',
+    appKey: 'ouLGRzNHfmas0n7OpG8xk4YJ',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
 
 
   
@@ -1184,6 +1295,53 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+</style>
+
+    
   
 
 

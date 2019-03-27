@@ -98,22 +98,32 @@
 
 
 
-  <meta name="keywords" content="classification,NIPS2012">
+  <meta name="description" content="介绍 文章提出了更复杂的Inception结构，并与ResNet进行了结合，最终集成模型获得ImageNet分类任务top-5 error为3.08%。 Inception-V4 Inception-V4结构如下：  其中对应Inception-A,Inception-B,Inception-C如下：  Inception-ResNet Inception-ResNet结构如下：  其中对应Inc">
+<meta name="keywords" content="classification,AAAI 2017">
 <meta property="og:type" content="article">
-<meta property="og:title" content="resnext">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/resnext/index.html">
+<meta property="og:title" content="Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/inception-v4/index.html">
 <meta property="og:site_name" content="爱学习">
+<meta property="og:description" content="介绍 文章提出了更复杂的Inception结构，并与ResNet进行了结合，最终集成模型获得ImageNet分类任务top-5 error为3.08%。 Inception-V4 Inception-V4结构如下：  其中对应Inception-A,Inception-B,Inception-C如下：  Inception-ResNet Inception-ResNet结构如下：  其中对应Inc">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T04:20:28.798Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v4/inception-v4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v4/inception-v4-schema.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v4/inception-resnet.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v4/inception-resnet-v1-schema.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v4/inception-resnet-v2-schema.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v4/result.png">
+<meta property="og:updated_time" content="2019-03-26T01:57:32.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="resnext">
+<meta name="twitter:title" content="Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning">
+<meta name="twitter:description" content="介绍 文章提出了更复杂的Inception结构，并与ResNet进行了结合，最终集成模型获得ImageNet分类任务top-5 error为3.08%。 Inception-V4 Inception-V4结构如下：  其中对应Inception-A,Inception-B,Inception-C如下：  Inception-ResNet Inception-ResNet结构如下：  其中对应Inc">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/25/inception-v4/inception-v4.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/12/resnext/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/inception-v4/">
 
 
 
@@ -123,7 +133,7 @@
   };
 </script>
 
-  <title>resnext | 爱学习</title>
+  <title>Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning | 爱学习</title>
   
 
 
@@ -368,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/resnext/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/inception-v4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yilang">
@@ -385,7 +395,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">resnext
+          <h1 class="post-title" itemprop="name headline">Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning
 
               
             
@@ -411,7 +421,7 @@
                 
               
 
-              <time title="创建时间：2019-03-12 16:30:31" itemprop="dateCreated datePublished" datetime="2019-03-12T16:30:31+08:00">2019-03-12</time>
+              <time title="创建时间：2019-03-25 21:09:57" itemprop="dateCreated datePublished" datetime="2019-03-25T21:09:57+08:00">2019-03-25</time>
             
 
             
@@ -428,7 +438,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-13 12:20:28" itemprop="dateModified" datetime="2019-03-13T12:20:28+08:00">2019-03-13</time>
+                <time title="修改时间：2019-03-26 09:57:32" itemprop="dateModified" datetime="2019-03-26T09:57:32+08:00">2019-03-26</time>
               
             
           </span>
@@ -463,6 +473,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/03/25/inception-v4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/25/inception-v4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -487,7 +510,22 @@
       
 
       
-        
+        <h1 id="介绍">介绍</h1>
+<p>文章提出了更复杂的Inception结构，并与ResNet进行了结合，最终集成模型获得ImageNet分类任务top-5 error为3.08%。</p>
+<h1 id="inception-v4">Inception-V4</h1>
+<p>Inception-V4结构如下：</p>
+<img src="/2019/03/25/inception-v4/inception-v4.png" width="500" title="inception v4">
+<p>其中对应Inception-A,Inception-B,Inception-C如下： <img src="/2019/03/25/inception-v4/inception-v4-schema.png" title="inception v4"></p>
+<h1 id="inception-resnet">Inception-ResNet</h1>
+<p>Inception-ResNet结构如下： <img src="/2019/03/25/inception-v4/inception-resnet.png" width="500" title="inception resnet"></p>
+<p>其中对应Inception-ResNet-V1版本Inception-A,Inception-B,Inception-C如下： <img src="/2019/03/25/inception-v4/inception-resnet-v1-schema.png" title="inception resnet v1"></p>
+<p>其中对应Inceptipn-ResNet-V2版本Inception-A,Inception-B,Inception-C如下： <img src="/2019/03/25/inception-v4/inception-resnet-v2-schema.png" title="inception resnet v2"></p>
+<h1 id="result">Result</h1>
+<p>不同版本Inception网络在ImageNet运行结果如下： <img src="/2019/03/25/inception-v4/result.png" width="500" title="result for different versions of inception network"></p>
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Szegedy, C., Ioffe, S., Vanhoucke, V., & Alemi, A. A. (2017, February). Inception-v4, inception-resnet and the impact of residual connections on learning. In Thirty-First AAAI Conference on Artificial Intelligence.
+</blockquote>
 
       
     </div>
@@ -513,7 +551,7 @@
           
             <a href="/tags/classification/" rel="tag"># classification</a>
           
-            <a href="/tags/NIPS2012/" rel="tag"># NIPS2012</a>
+            <a href="/tags/AAAI-2017/" rel="tag"># AAAI 2017</a>
           
         </div>
       
@@ -526,8 +564,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/inception-v4/" rel="next" title="inception-v4">
-                <i class="fa fa-chevron-left"></i> inception-v4
+              <a href="/2019/03/25/inception-v3/" rel="next" title="Inceptionv3:Rethinking the inception architecture for computer vision">
+                <i class="fa fa-chevron-left"></i> Inceptionv3:Rethinking the inception architecture for computer vision
               </a>
             
           </div>
@@ -536,8 +574,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/13/rcnn/" rel="prev" title="rcnn">
-                rcnn <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/26/resnext/" rel="prev" title="ResNeXt:Aggregated Residual Transformations for Deep Neural Networks">
+                ResNeXt:Aggregated Residual Transformations for Deep Neural Networks <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -561,6 +599,10 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+
+  
 
 
 
@@ -582,8 +624,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -670,7 +721,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -695,6 +748,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#inception-v4"><span class="nav-number">2.</span> <span class="nav-text">Inception-V4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#inception-resnet"><span class="nav-number">3.</span> <span class="nav-text">Inception-ResNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#result"><span class="nav-number">4.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -844,6 +914,36 @@
   
 
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'dCzi3pJRkIMYrUWLmVoLYyoL-gzGzoHsz',
+    appKey: 'ouLGRzNHfmas0n7OpG8xk4YJ',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
 
 
   

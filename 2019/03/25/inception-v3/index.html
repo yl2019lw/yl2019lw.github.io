@@ -98,22 +98,33 @@
 
 
 
-  <meta name="keywords" content="classification,NIPS2012">
+  <meta name="description" content="介绍 文章旨在通过合理地设计Inception结构达到更有效地利用增加的计算来获得更好地性能，在ILSVRC分类任务上获得17.3%的top-1 error及3.5% top-5 error。 General Design Principles 为有效扩展卷积网络地表示能力，文章利用Inception模块中存在的dimension reduction和parallel structures特性，给">
+<meta name="keywords" content="classification,CVPR2016">
 <meta property="og:type" content="article">
-<meta property="og:title" content="inception-v4">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/inception-v4/index.html">
+<meta property="og:title" content="Inceptionv3:Rethinking the inception architecture for computer vision">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/inception-v3/index.html">
 <meta property="og:site_name" content="爱学习">
+<meta property="og:description" content="介绍 文章旨在通过合理地设计Inception结构达到更有效地利用增加的计算来获得更好地性能，在ILSVRC分类任务上获得17.3%的top-1 error及3.5% top-5 error。 General Design Principles 为有效扩展卷积网络地表示能力，文章利用Inception模块中存在的dimension reduction和parallel structures特性，给">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T04:20:28.791Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v3/5_5_factor.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v3/inception_5_5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v3/3_3_factor.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v3/n_n_factor.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v3/alternative.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v3/grid_size.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/25/inception-v3/inception_v3.png">
+<meta property="og:updated_time" content="2019-03-25T10:20:51.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="inception-v4">
+<meta name="twitter:title" content="Inceptionv3:Rethinking the inception architecture for computer vision">
+<meta name="twitter:description" content="介绍 文章旨在通过合理地设计Inception结构达到更有效地利用增加的计算来获得更好地性能，在ILSVRC分类任务上获得17.3%的top-1 error及3.5% top-5 error。 General Design Principles 为有效扩展卷积网络地表示能力，文章利用Inception模块中存在的dimension reduction和parallel structures特性，给">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/25/inception-v3/5_5_factor.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/12/inception-v4/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/25/inception-v3/">
 
 
 
@@ -123,7 +134,7 @@
   };
 </script>
 
-  <title>inception-v4 | 爱学习</title>
+  <title>Inceptionv3:Rethinking the inception architecture for computer vision | 爱学习</title>
   
 
 
@@ -368,7 +379,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/inception-v4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/inception-v3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yilang">
@@ -385,7 +396,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">inception-v4
+          <h1 class="post-title" itemprop="name headline">Inceptionv3:Rethinking the inception architecture for computer vision
 
               
             
@@ -411,24 +422,12 @@
                 
               
 
-              <time title="创建时间：2019-03-12 16:29:57" itemprop="dateCreated datePublished" datetime="2019-03-12T16:29:57+08:00">2019-03-12</time>
+              <time title="创建时间：2019-03-25 11:41:46 / 修改时间：18:20:51" itemprop="dateCreated datePublished" datetime="2019-03-25T11:41:46+08:00">2019-03-25</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-13 12:20:28" itemprop="dateModified" datetime="2019-03-13T12:20:28+08:00">2019-03-13</time>
               
             
           </span>
@@ -463,6 +462,19 @@
           
             
             
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/03/25/inception-v3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/25/inception-v3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -487,7 +499,43 @@
       
 
       
-        
+        <h1 id="介绍">介绍</h1>
+<p>文章旨在通过合理地设计Inception结构达到更有效地利用增加的计算来获得更好地性能，在ILSVRC分类任务上获得17.3%的top-1 error及3.5% top-5 error。</p>
+<h1 id="general-design-principles">General Design Principles</h1>
+<p>为有效扩展卷积网络地表示能力，文章利用Inception模块中存在的dimension reduction和parallel structures特性，给出了几个通用的设计原则：</p>
+<ul>
+<li><p>避免表示瓶颈，尤其在网络的初始层。表示维度应该逐步地从输入递减到输出。</p></li>
+<li><p>高维特征表达通常有更强的区分能力，带来更快的训练速度。</p></li>
+<li><p>空间聚合在低维表示处进行将不会有太多的表示能力损失。</p></li>
+<li><p>需要平衡网络的深度与宽度。</p></li>
+</ul>
+<h1 id="factorizing-convolutions">Factorizing Convolutions</h1>
+<ul>
+<li>分解为小的卷积</li>
+</ul>
+<p>大的卷积核可以分解为多个小卷积的堆叠，如5x5卷积与两个堆叠3x3卷积有相同的感受野, 但使用小的卷积核有更少的参数量同时又不损失表示能力。</p>
+<img src="/2019/03/25/inception-v3/5_5_factor.png" width="400" title="5x5 factor">
+<p>可将原始Inception结构中使用的5x5卷积替换为堆叠的两个3x3卷积。</p>
+<img src="/2019/03/25/inception-v3/inception_5_5.png" width="400" title="inception replace 5x5">
+<ul>
+<li>分解为非对称的卷积</li>
+</ul>
+<p>相较于分解为一系列3x3卷积，分解为非对称的卷积会有更少的参数量。如3x3卷积可分解为3x1卷积后接1x3卷积。</p>
+<img src="/2019/03/25/inception-v3/3_3_factor.png" width="400" title="3x3 factor">
+<p>n x n卷积可分解为1 x n卷积后接n x 1卷积。</p>
+<img src="/2019/03/25/inception-v3/n_n_factor.png" width="400" title="3x3 factor">
+<h1 id="efficient-grid-size-reduction">Efficient Grid Size Reduction</h1>
+<p>通常通过1x1卷积调整特征通道维度，通过池化减小feature map，如输入为<span class="math inline">\(d \times d \times k\)</span>，输出为<span class="math inline">\(\frac{d}{2} \times \frac{d}{2} \times 2k\)</span>可组合1x1卷积和池化完成。如先池化再卷积比先卷积再池化虽然有更少的参数，但会损失模型表示能力：</p>
+<img src="/2019/03/25/inception-v3/alternative.png" width="400" title="alternative">
+<p>实际上可以通过以下方式来更好地解决表示瓶颈，同时也拥有较少的参数：</p>
+<img src="/2019/03/25/inception-v3/grid_size.png" width="400" title="reduce grid size">
+<h1 id="inception-v3">Inception-V3</h1>
+<p>Inception V3结构如下表：</p>
+<img src="/2019/03/25/inception-v3/inception_v3.png" width="400" title="3x3 factor">
+<h1 id="参考文献">参考文献</h1>
+<blockquote>
+Szegedy, C., Vanhoucke, V., Ioffe, S., Shlens, J., & Wojna, Z. (2016). Rethinking the inception architecture for computer vision. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 2818-2826).
+</blockquote>
 
       
     </div>
@@ -513,7 +561,7 @@
           
             <a href="/tags/classification/" rel="tag"># classification</a>
           
-            <a href="/tags/NIPS2012/" rel="tag"># NIPS2012</a>
+            <a href="/tags/CVPR2016/" rel="tag"># CVPR2016</a>
           
         </div>
       
@@ -526,8 +574,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/12/inception-v3/" rel="next" title="inception_v3">
-                <i class="fa fa-chevron-left"></i> inception_v3
+              <a href="/2019/03/24/senet/" rel="next" title="SENet:Squeeze-and-Excitation Networks">
+                <i class="fa fa-chevron-left"></i> SENet:Squeeze-and-Excitation Networks
               </a>
             
           </div>
@@ -536,8 +584,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/12/resnext/" rel="prev" title="resnext">
-                resnext <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/25/inception-v4/" rel="prev" title="Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning">
+                Inception-v4,Inception-ResNet and the Impact of Residual Connections on Learning <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -561,6 +609,10 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+
+  
 
 
 
@@ -582,8 +634,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -670,7 +731,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -695,6 +758,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#general-design-principles"><span class="nav-number">2.</span> <span class="nav-text">General Design Principles</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#factorizing-convolutions"><span class="nav-number">3.</span> <span class="nav-text">Factorizing Convolutions</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#efficient-grid-size-reduction"><span class="nav-number">4.</span> <span class="nav-text">Efficient Grid Size Reduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#inception-v3"><span class="nav-number">5.</span> <span class="nav-text">Inception-V3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -844,6 +924,36 @@
   
 
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'dCzi3pJRkIMYrUWLmVoLYyoL-gzGzoHsz',
+    appKey: 'ouLGRzNHfmas0n7OpG8xk4YJ',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
 
 
   
@@ -1184,53 +1294,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-</style>
-
-    
   
 
 

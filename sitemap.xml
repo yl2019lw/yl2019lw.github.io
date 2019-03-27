@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2019-03-27T04:11:12.195Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2019-03-27T04:11:12.195Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/26/resnext/</loc>
+    
+    <lastmod>2019-03-27T04:11:12.172Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/25/inception-v4/</loc>
+    
+    <lastmod>2019-03-26T01:57:32.740Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/25/inception-v3/</loc>
+    
+    <lastmod>2019-03-25T10:20:51.107Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/03/24/senet/</loc>
     
     <lastmod>2019-03-24T05:46:08.792Z</lastmod>
@@ -121,14 +156,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/stn/</loc>
+    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
     
     <lastmod>2019-03-13T04:20:28.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
+    <loc>http://yoursite.com/2019/03/13/stn/</loc>
     
     <lastmod>2019-03-13T04:20:28.804Z</lastmod>
     
@@ -191,13 +226,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/12/resnext/</loc>
-    
-    <lastmod>2019-03-13T04:20:28.798Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/03/13/refinenet/</loc>
     
     <lastmod>2019-03-13T04:20:28.797Z</lastmod>
@@ -205,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
     
     <lastmod>2019-03-13T04:20:28.797Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
     
     <lastmod>2019-03-13T04:20:28.797Z</lastmod>
     
@@ -254,14 +282,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/mask-x-rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/mask-rcnn/</loc>
     
     <lastmod>2019-03-13T04:20:28.793Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/mask-rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/mask-x-rcnn/</loc>
     
     <lastmod>2019-03-13T04:20:28.793Z</lastmod>
     
@@ -289,20 +317,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/12/inception-v4/</loc>
-    
-    <lastmod>2019-03-13T04:20:28.791Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/03/12/inception-v3/</loc>
-    
-    <lastmod>2019-03-13T04:20:28.790Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/03/13/hog/</loc>
     
     <lastmod>2019-03-13T04:20:28.789Z</lastmod>
@@ -310,14 +324,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/fssd/</loc>
+    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
     
     <lastmod>2019-03-13T04:20:28.788Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fssd/</loc>
     
     <lastmod>2019-03-13T04:20:28.788Z</lastmod>
     
@@ -338,13 +352,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/fcis/</loc>
-    
-    <lastmod>2019-03-13T04:20:28.786Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/03/13/fcn/</loc>
     
     <lastmod>2019-03-13T04:20:28.786Z</lastmod>
@@ -352,14 +359,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/fast-rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fcis/</loc>
+    
+    <lastmod>2019-03-13T04:20:28.786Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/13/faster-rcnn/</loc>
     
     <lastmod>2019-03-13T04:20:28.785Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/faster-rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fast-rcnn/</loc>
     
     <lastmod>2019-03-13T04:20:28.785Z</lastmod>
     
@@ -387,14 +401,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/dssd/</loc>
+    <loc>http://yoursite.com/2019/03/13/drrn/</loc>
     
     <lastmod>2019-03-13T04:20:28.782Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/drrn/</loc>
+    <loc>http://yoursite.com/2019/03/13/dssd/</loc>
     
     <lastmod>2019-03-13T04:20:28.782Z</lastmod>
     
@@ -415,14 +429,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/deepmask/</loc>
+    <loc>http://yoursite.com/2019/03/13/deeplab-v3/</loc>
     
     <lastmod>2019-03-13T04:20:28.779Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/deeplab-v3/</loc>
+    <loc>http://yoursite.com/2019/03/13/deepmask/</loc>
     
     <lastmod>2019-03-13T04:20:28.779Z</lastmod>
     
@@ -446,20 +460,6 @@
     <loc>http://yoursite.com/2019/03/13/deconvolution/</loc>
     
     <lastmod>2019-03-13T04:20:28.777Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2019-03-12T06:05:38.446Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
-    
-    <lastmod>2019-03-12T06:05:38.446Z</lastmod>
     
   </url>
   
