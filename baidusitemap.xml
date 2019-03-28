@@ -61,10 +61,10 @@
     <loc>http://yoursite.com/2019/03/13/ssd/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
+    <loc>http://yoursite.com/2019/03/13/stn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/stn/</loc>
+    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/srcnn/</loc>
@@ -73,19 +73,19 @@
     <loc>http://yoursite.com/2019/03/13/srdensenet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/sift/</loc>
+    <loc>http://yoursite.com/2019/03/13/sppnet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/sppnet/</loc>
+    <loc>http://yoursite.com/2019/03/13/sift/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/selective-search/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/sds/</loc>
+    <loc>http://yoursite.com/2019/03/13/segnet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/segnet/</loc>
+    <loc>http://yoursite.com/2019/03/13/sds/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/retinanet/</loc>
@@ -94,10 +94,10 @@
     <loc>http://yoursite.com/2019/03/13/refinenet/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/r-fcn/</loc>
@@ -121,10 +121,10 @@
     <loc>http://yoursite.com/2019/03/13/mask-x-rcnn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/lapsrn/</loc>
+    <loc>http://yoursite.com/2019/03/13/lbp/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/lbp/</loc>
+    <loc>http://yoursite.com/2019/03/13/lapsrn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/instance-fcn/</loc>
@@ -133,22 +133,22 @@
     <loc>http://yoursite.com/2019/03/13/hog/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
-    <lastmod>2019-03-13</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fssd/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/fsr-gan/</loc>
+    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fpn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fsr-gan/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/fcis/</loc>
+    <lastmod>2019-03-13</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/faster-rcnn/</loc>
@@ -160,16 +160,16 @@
     <loc>http://yoursite.com/2019/03/13/espcn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/edge-boxes/</loc>
-    <lastmod>2019-03-13</lastmod>
-  </url>  <url>
     <loc>http://yoursite.com/2019/03/13/edsr/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/03/13/drrn/</loc>
+    <loc>http://yoursite.com/2019/03/13/edge-boxes/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/dssd/</loc>
+    <lastmod>2019-03-13</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/03/13/drrn/</loc>
     <lastmod>2019-03-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/13/drcn/</loc>

@@ -156,14 +156,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
+    <loc>http://yoursite.com/2019/03/13/stn/</loc>
     
     <lastmod>2019-03-13T04:20:28.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/stn/</loc>
+    <loc>http://yoursite.com/2019/03/13/srgan/</loc>
     
     <lastmod>2019-03-13T04:20:28.804Z</lastmod>
     
@@ -184,14 +184,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/sift/</loc>
+    <loc>http://yoursite.com/2019/03/13/sppnet/</loc>
     
     <lastmod>2019-03-13T04:20:28.802Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/sppnet/</loc>
+    <loc>http://yoursite.com/2019/03/13/sift/</loc>
     
     <lastmod>2019-03-13T04:20:28.802Z</lastmod>
     
@@ -205,14 +205,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/sds/</loc>
+    <loc>http://yoursite.com/2019/03/13/segnet/</loc>
     
     <lastmod>2019-03-13T04:20:28.800Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/segnet/</loc>
+    <loc>http://yoursite.com/2019/03/13/sds/</loc>
     
     <lastmod>2019-03-13T04:20:28.800Z</lastmod>
     
@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
     
     <lastmod>2019-03-13T04:20:28.797Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/rdn/</loc>
+    <loc>http://yoursite.com/2019/03/13/rcnn/</loc>
     
     <lastmod>2019-03-13T04:20:28.797Z</lastmod>
     
@@ -296,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/lapsrn/</loc>
+    <loc>http://yoursite.com/2019/03/13/lbp/</loc>
     
     <lastmod>2019-03-13T04:20:28.792Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/lbp/</loc>
+    <loc>http://yoursite.com/2019/03/13/lapsrn/</loc>
     
     <lastmod>2019-03-13T04:20:28.792Z</lastmod>
     
@@ -324,13 +324,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
-    
-    <lastmod>2019-03-13T04:20:28.788Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/03/13/fssd/</loc>
     
     <lastmod>2019-03-13T04:20:28.788Z</lastmod>
@@ -338,9 +331,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/fsr-gan/</loc>
+    <loc>http://yoursite.com/2019/03/13/gcn/</loc>
     
-    <lastmod>2019-03-13T04:20:28.787Z</lastmod>
+    <lastmod>2019-03-13T04:20:28.788Z</lastmod>
     
   </url>
   
@@ -352,14 +345,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
+    <loc>http://yoursite.com/2019/03/13/fsr-gan/</loc>
+    
+    <lastmod>2019-03-13T04:20:28.787Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/13/fcis/</loc>
     
     <lastmod>2019-03-13T04:20:28.786Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/fcis/</loc>
+    <loc>http://yoursite.com/2019/03/13/fcn/</loc>
     
     <lastmod>2019-03-13T04:20:28.786Z</lastmod>
     
@@ -387,13 +387,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/edge-boxes/</loc>
-    
-    <lastmod>2019-03-13T04:20:28.783Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/03/13/edsr/</loc>
     
     <lastmod>2019-03-13T04:20:28.783Z</lastmod>
@@ -401,14 +394,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/drrn/</loc>
+    <loc>http://yoursite.com/2019/03/13/edge-boxes/</loc>
+    
+    <lastmod>2019-03-13T04:20:28.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/03/13/dssd/</loc>
     
     <lastmod>2019-03-13T04:20:28.782Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/03/13/dssd/</loc>
+    <loc>http://yoursite.com/2019/03/13/drrn/</loc>
     
     <lastmod>2019-03-13T04:20:28.782Z</lastmod>
     
