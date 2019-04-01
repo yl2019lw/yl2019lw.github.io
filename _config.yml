@@ -78,12 +78,13 @@ theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: 
-    github: https://github.com/yl2019lw/yl2019lw.github.io.git,master
-    coding: https://git.dev.tencent.com/yl2019lw/yl2019lw.coding.me.git,master
+# deploy:
+#   type: git
+#   repo: 
+#     github: https://github.com/yl2019lw/yl2019lw.github.io.git,master
+#     coding: https://git.dev.tencent.com/yl2019lw/yl2019lw.coding.me.git,master
 
+deploy:
   type: cos
   appId: 1258906874
   secretId: AKIDRmNo1zRBUdflkXLRccP5j9D5lGVaqwBB
