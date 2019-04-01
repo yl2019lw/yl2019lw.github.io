@@ -84,6 +84,13 @@ deploy:
     github: https://github.com/yl2019lw/yl2019lw.github.io.git,master
     coding: https://git.dev.tencent.com/yl2019lw/yl2019lw.coding.me.git,master
 
+  type: cos
+  appId: 1258906874
+  secretId: AKIDRmNo1zRBUdflkXLRccP5j9D5lGVaqwBB
+  secretKey: EJEyVBcstgDVbcOdgoUxZw50ve9PQBE3
+  bucket: blog-1258906874
+  region: ap-shanghai
+
 # Search 
 search:
     path: search.xml
