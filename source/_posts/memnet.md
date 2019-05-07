@@ -90,7 +90,7 @@ Gate unit采用$1 \times 1$卷积为不同的memories学习自适应的权重并
 \end{equation}
 加权输出为$y = \sum_{m=1}^{M} w_m \cdot y_m$，${ w_m }_{m=1}^{M}$为学习的权重，损失函数为中间memory block重构预测与综合预测两部分损失的平衡：
 \begin{equation}
-    L(\theta) = \frac{\alpha}{2N}\sum_{i=1}{N}||\hat{x}^{(i)} - \sum_{m=1}^{M} w_m \cdot y_m^{(i)}||^2 + \frac{1 - \alpha}{2MN}\sum_{m=1}{M}\sum_{i=1}^{N}||\hat{x}^{(i)} - y_m^{(i)}||^2
+    L(\theta) = \frac{\alpha}{2N}\sum_{i=1}^{N}||\hat{x}^{(i)} - \sum_{m=1}^{M} w_m \cdot y_m^{(i)}||^2 + \frac{1 - \alpha}{2MN}\sum_{m=1}^{M}\sum_{i=1}^{N}||\hat{x}^{(i)} - y_m^{(i)}||^2
 \end{equation}
 
 # 参考文献
