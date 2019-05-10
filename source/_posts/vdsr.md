@@ -23,6 +23,7 @@ mathjax: true
 通常gradient clipping限制梯度在一个范围$[-\theta, \theta]$，如果使用较大的学习率则容易出现梯度爆炸问题，需要将$\theta$设置的较小。使用学习率衰减策略后，过小的步长会减缓收敛，文章将梯度限定在$[-\frac{\theta}{r}, \frac{\theta}{r}]$，其中$r$为当前的学习率。
 
 # Metric
+
 在PSNR之外，也使用了SSIM指标来衡量重构后的图像与原始高清图像的结构相似性。
 
 {% asset_img ssim.png ssim %}
@@ -30,6 +31,7 @@ mathjax: true
 {% asset_img ssim_extra.png ssim_extra %}
 
 # 参考文献
+
 {% blockquote %}
 
 Kim, J., Kwon Lee, J., & Mu Lee, K. (2016). Accurate image super-resolution using very deep convolutional networks. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 1646-1654).

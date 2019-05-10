@@ -14,7 +14,7 @@ mathjax: true
 文章提出了DenseNet模型，其中Dense指神经网络层与层之间的连接。在常规的卷积神经网络中，L层的网络共有L个连接，在DenseNet中L层的网络有$\frac{L(L+1)}{2}$个连接。在feature map大小匹配的层中，每一层都把其前面所有层的feature map作为其输入，也把其自己的feature
 map作为后续所有层的输入，Dense Block如下图所示：
 
-{% img /2019/03/23/densenet/denseblock.png 400 dense block %}
+{% img /densenet/denseblock.png 400 dense block %}
 
 DenseNet因其密集地连接方式，能够缓解梯度消失问题，强化特征传播与特征复用，事实上减少了参数数量。DenseNet中每一层都可以相对直接地获取从loss传来的梯度信号及原始输入信息，更好的信息与梯度流动让模型易于训练。DenseNet在CIFAR-10，CIFAR-100，SVHN，ImageNet等数据集上获得了state-of-the-art表现。
 

@@ -43,6 +43,7 @@ LapSRN网络结构如下图所示：
 在PSNR及SSIM之外，使用了IFC指标。（待说明）
 
 # 参考文献
+
 {% blockquote %}
 
 Lai, W. S., Huang, J. B., Ahuja, N., & Yang, M. H. (2017). Deep laplacian pyramid networks for fast and accurate super-resolution. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 624-632).

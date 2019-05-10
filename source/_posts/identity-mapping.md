@@ -11,6 +11,7 @@ mathjax: true
 ---
 
 # 介绍
+
 文章是对原始ResNet模型的改进，使得在前向与后向传播中信息能够更好地流动，进一步解决了深度学习模型训练中的退化问题。ResNet中Identity Mapping只存在shortcut connection中，改进后残差单元间传递的也是Identity Mapping。
 
 ResNet是由一系列的残差单元堆叠而成，如下所示：
@@ -35,9 +36,10 @@ ResNet是由一系列的残差单元堆叠而成，如下所示：
 其中$\epsilon$表示loss，公式(5)说明了对深层$L$的梯度可以直接传递到浅层$l$。
 
 下图显示了原版ResNet及改进后的区别。
-{% img /2019/03/22/identity-mapping/identity_mapping.png 400 identity mapping %}
+{% img /identity-mapping/identity_mapping.png 400 identity mapping %}
 
 # Identity Skip Connections
+
 为探讨Identity Skip Connection的重要性，先假定$f$是identity，然后考察不同形式的skip connections。
 对于取$h(x_l) = \lambda_lx_l$，有
 \begin{equation}
@@ -55,16 +57,16 @@ ResNet是由一系列的残差单元堆叠而成，如下所示：
 由于梯度中有$\prod_{i=L}^{L-1}\lambda_i$，当网络变深时容易出现梯度消失与梯度爆炸问题。
 下图所示为不同的skip connections 及其结果。
 
-{% img /2019/03/22/identity-mapping/shortcut_connections.png 600 skip connections %}
+{% img /identity-mapping/shortcut_connections.png 600 skip connections %}
 
-{% img /2019/03/22/identity-mapping/shortcut_connections_result.png 600 skip connections result %}
-
+{% img /identity-mapping/shortcut_connections_result.png 600 skip connections result %}
 
 # Usage of Activation Functions
 
 接下来探讨Identity在$f$方面的重要性，此时使用identity skip conntions，采用如下不同形式的残差块进行比较。
 
-{% img /2019/03/22/identity-mapping/diff_activations.png 600 different activations %}
+{% img /identity-mapping/diff_activations.png 600 different activations %}
+
 如上图(c)所示可实现naive版本的identity，但由于$relu(x) = max(0, x)$总是输出非负数，会影响残差块的表达能力。
 上图(d),(e)的pre-activation指将本来处于相加后使用的relu放置在残差块的最前面，且只影响残差块这一分支。此时有：
 \begin{equation}
@@ -74,17 +76,18 @@ ResNet是由一系列的残差单元堆叠而成，如下所示：
 
 事实上由于残差网络是由很多残差单元堆叠而成，after-addition activation和pre-activation是等价的，如下图所示：
 
-{% img /2019/03/22/identity-mapping/pre_activation.png 600 pre activation %}
+{% img /identity-mapping/pre_activation.png 600 pre activation %}
 
 关于不同$f$调整的结果见下表：
 
-{% img /2019/03/22/identity-mapping/diff_activations_result.png 600 different activations result %}
+{% img /identity-mapping/diff_activations_result.png 600 different activations result %}
 
 # 总结
 
 本文提出了对ResNet结构的改进，使得信息能够更好地流通。主要是将原来会阻碍信息流动的addition之后的relu位置调到了残差函数的前面，使其不影响skip connection分支。
     
 # 参考文献
+
 {% blockquote %}
 
 He, K., Zhang, X., Ren, S., & Sun, J. (2016, October). Identity mappings in deep residual networks. In European conference on computer vision (pp. 630-645). Springer, Cham.

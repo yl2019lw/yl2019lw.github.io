@@ -11,9 +11,10 @@ mathjax: true
 ---
 
 # 介绍
+
 文章提出MemNet来解决image denosing, super-resolution, JPEG deblocking任务。对于层数较深的神经网络有突出的long-term dependency问题，文章引入包含recursive unit及gate unit的memmory block，通过自适应的学习过程挖掘memory。Memory block内recursive unit学习在当前状态下不同感受野大小的不同级别的特征表示作为short-term memory，与之前的memory block的输出即long-term memory拼接在一起作为当前memory block内gate unit的输入。Gate unit自适应地控制有多少long-term memory被保留及多少当前的short-memory被保存。Memory block示意图如下：
 
-{% img /2019/05/07/memnet/memblock.png 400 memblock %}
+{% img /memnet/memblock.png 400 memblock %}
 
 # MemNet
 ## Basic Network Architecture
