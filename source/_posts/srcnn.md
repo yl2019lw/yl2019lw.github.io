@@ -20,7 +20,7 @@ mathjax: true
 
 低分辨率图片需要进行预处理，即通过双三次插值放大到指定大小后进行训练。双三次插值即在二维方向各进行三次多项式插值，共需要周围16个的点的信息，示意图如下。
 
-{% img /2019/05/05/srcnn/bicubic_interpolation.png 400 bicubic interpolation %}
+{% img /srcnn/bicubic_interpolation.png 400 bicubic interpolation %}
 
 ## formulation
 
@@ -52,6 +52,7 @@ SRCNN为三层卷积网络结构，包含patch抽取及表示、非线性变换�
 其中$MAX_I$为图像中最大亮度，如255。
 
 # 参考文献
+
 {% blockquote %}
 
 Dong, C., Loy, C. C., He, K., & Tang, X. (2014, September). Learning a deep convolutional network for image super-resolution. In European conference on computer vision (pp. 184-199). Springer, Cham.

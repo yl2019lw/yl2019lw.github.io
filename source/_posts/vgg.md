@@ -11,9 +11,11 @@ mathjax: true
 ---
 
 # 介绍
+
 VGG模型来自牛津大学Visual Geometry Group, 其堆叠一系列3x3卷积核，在ILSVRC-2014获得定位任务第一名，分类任务第二名。
 
 # 架构
+
 模型仅使用3x3及1x1大小的卷积核，3x3为可捕获上下左右信息的最小卷积窗口。所有的3x3卷积有padding=1，步长为1，因此输入输出的特征图大小不变。
 
 池化层窗口大小为2x2,步长为2，每次池化后特征图大小减半。紧接池化后的卷积通道数翻倍，直至最后为512，保持运算的均衡。
@@ -39,6 +41,7 @@ VGG模型来自牛津大学Visual Geometry Group, 其堆叠一系列3x3卷积核
 * 多模型集成
 
 # 参考文献
+
 {% blockquote %}
 
 Simonyan, K., & Zisserman, A. (2014). Very deep convolutional networks for large-scale image recognition. arXiv preprint arXiv:1409.1556.

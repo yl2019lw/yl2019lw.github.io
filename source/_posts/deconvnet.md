@@ -23,7 +23,7 @@ DeconvNet包含下采样卷积网络特征提取部分以及上采样信息还�
 
 其中Convolution network为VGG16去掉全连接层，额外两个1x1全卷积， Deconvolution network包含unpooling, deconvolution及relu。网络大致是对称结构，unpooling即在相对应的pooling层记住最大池化选取结果的位置，将当前activation的结果放到该位置处，其它位置为0。Deconv相对conv为转置卷积，根据一个输入获得多个输出。示意图如下:
 
-{% img /2019/04/25/deconvnet/unpooling.png 500 unpooling %}
+{% img /deconvnet/unpooling.png 500 unpooling %}
 
 # Experiments
 文章进行两阶段训练。第一阶段根据gound truth标注去框选物体作为proposal输入网络进行训练，第二阶段使用edgeboxes为每张图片生成proposal作为训练输入。
