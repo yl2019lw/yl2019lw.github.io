@@ -6,6 +6,7 @@ tags:
 category:
   - computer vision
   - detection
+  - two-stage detector
 date: 2019-04-16 21:09:15
 mathjax: true
 ---
