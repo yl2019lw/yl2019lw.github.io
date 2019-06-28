@@ -29,7 +29,9 @@ mathjax: true
 
 文章使用Recursive Block方式在增加网络深度时控制参数数量，Recursive Block内可包含多个局部残差块，基本残差块包含两层卷积，所有残差块均使用相同的输入作为identity branch输入。同一Recursive Block内残差块参数是共享的，不同Recursive Block间参数不同。一个Recursive Block示意图如下：
 
-{% img /drrn/recursive.png 400 recursive %}
+<div class='img-size-half'>
+{% asset_img recursive.png recursive %}
+</div>
 
 令B为网络中Recursive Block数量，U为Recursive Block内残差单元数量，则有$H_b^0 = f_b(x_{b-1})$为$x_{b-1}$通过Recursive Block内第一个卷积后的输出。通过$u-th$残差单元后的结果为$H_b^u = g(H^{u-1}) = F(H_b^{u-1}, W_b) + H_b^0$，第b个Recursive Block的输出为$x_b = H_b^U = g^{(U)}(f_b(x_{b-1})) = g(g(\dots (g(f_b(x_{b-1})))\dots))$。
 
@@ -37,7 +39,9 @@ mathjax: true
 
 DRRN通过堆叠一系列Recursive Block实现，最终使用1层卷积重构低分辨率输入与高分辨率输出之间的残差图像。因每个Recursive Block内部首先使用1层卷积再附加递归的残差单元，故网络深度$d = (1 + 2 \times U) \times B + 1$。如下图所示为取$B=6, U=3$的DRRN网络结构：
 
-{% img /drrn/B6U3.png 400 B6U3 %}
+<div class='img-size-half'>
+{% asset_img B6U3.png B6U3 %}
+</div>
 
 当$U = 0$时，DRRN结构退化为VDSR。命$x,y$为DRRN的输入与输出，$R$为$b-th$Recursive Block映射函数，则有
 \begin{equation}

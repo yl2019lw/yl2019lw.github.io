@@ -25,7 +25,9 @@ mathjax: true
 
 文章使用的SPP应用于最终feature map上替代原pooling层，后面跟上需要固定大小的全连接层作为分类器。SPP接受任意大小的输入并产生固定大小的输出，示意图如下：
 
-{% img /sppnet/sppnet.png 600 sppnet %}
+<div class='img-size-half'>
+{% asset_img sppnet.png sppnet %}
+</div>
 
 通常的pooling使用固定的窗口大小，当输入大小变化时pooling的输出也对应成比例的变化。换个角度，为得到固定大小的输出，可使用与输入大小成对应比例的pooling窗口大小，因pooling是没有参数的，所以这种操作没有额外代价。
 文章使用了多个输出大小级别的pooling，因此被称作spatial pyramid pooling。文章使用ZFNet作为基础网络，最终特征图有256个channel，对应pooling时每一个格子单元的输出即对应256维的向量。文章使用了1x1,2x2,3x3,6x6共四个级别的pooling输出窗口大小，然后把不同pooling的结果拼接起来, 因此最终的特征维度为12800（$12800 = 256 \times 50$, $50 = 1 \times 1 + 2 \times 2 + 3 \times 3 + 6 \times 6$）。

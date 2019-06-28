@@ -21,7 +21,9 @@ Inception模块使用不同大小的卷积核提取特征并组合在一起实�
 
 为减少计算量，在3x3及5x5卷积核前引入1x1卷积调整通道数目降低维度, 3x3 max pooling后也引入1x1卷积降维， 如下图所示。
 
-{% img /googlenet/inception.png 400 inception%}
+<div class='img-size-half'>
+{% asset_img inception.png inception%}
+</div>
 
 # GoogleNet
 

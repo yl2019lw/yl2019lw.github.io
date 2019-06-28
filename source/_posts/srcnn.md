@@ -20,7 +20,9 @@ mathjax: true
 
 低分辨率图片需要进行预处理，即通过双三次插值放大到指定大小后进行训练。双三次插值即在二维方向各进行三次多项式插值，共需要周围16个的点的信息，示意图如下。
 
-{% img /srcnn/bicubic_interpolation.png 400 bicubic interpolation %}
+<div class='img-size-half'>
+{% asset_img bicubic_interpolation.png bicubic interpolation %}
+</div>
 
 ## formulation
 

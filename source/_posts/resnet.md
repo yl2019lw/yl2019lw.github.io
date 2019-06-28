@@ -16,7 +16,9 @@ mathjax: true
 
 更深的神经网络可能带来更好的性能，但却存在难以训练的退化问题，这并不是因为更深的网络导致了过拟合，而是训练误差都不能得到很好地下降，如下图所示：
 
-{% img /resnet/degradation.png 600 degradation %}
+<div class='img-size-half'>
+{% asset_img degradation.png degradation %}
+</div>
 
 退化问题说明了深度模型训练的困难。从理论分析来看，考虑一个浅层网络和在其之上加了更多层的深层网络，对于深层网络可以把额外增加的层训练为恒等映射，其余部分从浅层网络拷贝过来，那么对于深层网络就应该存在方案使得其训练误差可以比相应的浅层网络要小。实际训练网络的情况并非如此，本文使用残差学习解决这个问题。
 
@@ -26,7 +28,9 @@ mathjax: true
 
 假设$H(x)$是要通过堆叠的网络层学习的从输入到输出的映射，$x$表示输入，如果假定多层网络能够渐近地学习到$H(x)$，那么其也应该能学习到$F(x)=H(x)-x$。通过残差方式只需要学习$F(x)$，原始问题为$F(x)+x$，两种方式的学习难易程度却有很大的不同。
 
-{% img /resnet/residual.png 400 degradation %}
+<div class='img-size-half'>
+{% asset_img residual.png degradation %}
+</div>
 
 ## Identity Mapping by Shortcuts
 
@@ -49,7 +53,9 @@ mathjax: true
 
     当配置的网络较深时存在参数过多的问题，因此可引入1x1的卷积核来降低维度减少计算量。具体来说，2层的3x3残差块中可由1x1,3x3,1x1堆叠的三层块代替，前面的1x1卷积用来降低维度，后面的1x1用来提升维度以使输入输出维度匹配，如下图所示：
 
-{%img /resnet/bottleneck.png 400 bottleneck %}
+<div class='img-size-half'>
+{% asset_img bottleneck.png bottleneck %}
+</div>
 
 * architecture
 

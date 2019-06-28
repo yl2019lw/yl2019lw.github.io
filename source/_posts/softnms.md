@@ -29,7 +29,9 @@ Soft-NMS在处理时根据弱势box与高得分box的IoU降低其score，处理�
 
 Soft NMS与NMS算法处理流程如下所示。
 
-{% img /softnms/softnms.png 500 Soft NMS %}
+<div class='img-size-half'>
+{% asset_img softnms.png Soft NMS %}
+</div>
 
 当前目标检测系统在多个IoU阈值上度量Average Precision，当使用较高的检测阈值$O_t$而使用较低的NMS阈值$N_t$时，容易导致有较高重叠的真实物体丢失。
 

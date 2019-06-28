@@ -15,7 +15,9 @@ mathjax: true
 
 文章提出了全景分割任务，其既要进行语义分割也要进行实例分割。对图像中的每一个像素，输出其语义类别与实例id。语义label与实例id相同的像素为同一物体，对于stuff类别实例id应忽略。
 
-{% img /panoptic/panoptic.png 500 panoptic %}
+<div class='img-size-half'>
+{% asset_img panoptic.png panoptic %}
+</div>
 
 不同于语义分割，全景分割需要区分出不同的实例，这对于全卷积网络是个挑战。不同于实例分割，全景分割要求实例之间不能重叠，这对于基于RoI的实例分割方法也是挑战。
 
@@ -35,7 +37,9 @@ mathjax: true
 
 由于匹配时ground truth segment与predicted segment的对称性，也仅有一个ground truth segment可与predicted segment有大于0.5的IoU。
 
-{% img /panoptic/match.png 500 match %}
+<div class='img-size-half'>
+{% asset_img match.png match %}
+</div>
 
 对thing与stuff中每一个类别，segment匹配结果可分为TP,FP,FN，可计算如下PQ指标：
 

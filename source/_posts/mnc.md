@@ -82,7 +82,9 @@ box-based pathway可防止有效特征全部被masked丢失，此二者进行拼
 
 MNC可使用更多阶段进行迭代式训练。如在第三阶段分类时同时生成class-wise bouding box，将其可看作第一阶段的box proposal，第四阶段与第五阶段采用同第二、三阶段的结构。
 
-{% img /mnc/stage.png 500 stage %}
+<div class='img-size-half'>
+{% asset_img stage.png stage %}
+</div>
 
 # 参考文献
 

@@ -21,7 +21,9 @@ mathjax: true
 
 Fast R-CNN把整张图片与及对应的region proposals一起作为输入。首先使用一系列卷积和池化层产生整张图片的feature map，然后对每个region proposal使用ROI pooling从feature map对应位置处提取出固定大小的特征表示。每个特征向量输入全连接层最终至分类与检测两个分支，其中分类分支通过softmax产生k+1个概率输出（K个类别，1背景），检测分支产生4K个输出进行回归（每个类4个值标记中心点及宽高）。整体处理流程如下：
 
-{% img /fast-rcnn/architecture.png 600 fast r-cnn %}
+<div class='img-size-half'>
+{% asset_img architecture.png fast r-cnn %}
+</div>
 
 ## RoI pooling
 

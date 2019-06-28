@@ -31,37 +31,51 @@ category:
 
 大的卷积核可以分解为多个小卷积的堆叠，如5x5卷积与两个堆叠3x3卷积有相同的感受野, 但使用小的卷积核有更少的参数量同时又不损失表示能力。
 
-{% img /inception-v3/5_5_factor.png 400 5x5 factor %} 
+<div class='img-size-half'>
+{% asset_img 5_5_factor.png 5x5 factor %} 
+</div>
 
 可将原始Inception结构中使用的5x5卷积替换为堆叠的两个3x3卷积。
 
-{% img /inception-v3/inception_5_5.png 400 inception replace 5x5 %}
+<div class='img-size-half'>
+{% asset_img inception_5_5.png inception replace 5x5 %}
+</div>
 
 * 分解为非对称的卷积
 
 相较于分解为一系列3x3卷积，分解为非对称的卷积会有更少的参数量。如3x3卷积可分解为3x1卷积后接1x3卷积。
 
-{% img /inception-v3/3_3_factor.png 400 3x3 factor %} 
+<div class='img-size-half'>
+{% asset_img 3_3_factor.png 3x3 factor %} 
+</div>
 
 n x n卷积可分解为1 x n卷积后接n x 1卷积。
 
-{% img /inception-v3/n_n_factor.png 400 3x3 factor %} 
+<div class='img-size-half'>
+{% asset_img n_n_factor.png 3x3 factor %} 
+</div>
 
 # Efficient Grid Size Reduction
 
 通常通过1x1卷积调整特征通道维度，通过池化减小feature map，如输入为$d \times d \times k$，输出为$\frac{d}{2} \times \frac{d}{2} \times 2k$可组合1x1卷积和池化完成。如先池化再卷积比先卷积再池化虽然有更少的参数，但会损失模型表示能力：
 
-{% img /inception-v3/alternative.png 400 alternative %}
+<div class='img-size-half'>
+{% asset_img alternative.png alternative %}
+</div>
 
 实际上可以通过以下方式来更好地解决表示瓶颈，同时也拥有较少的参数：
 
-{% img /inception-v3/grid_size.png 400 reduce grid size %}
+<div class='img-size-half'>
+{% asset_img grid_size.png reduce grid size %}
+</div>
 
 # Inception-V3
 
 Inception V3结构如下表：
 
-{% img /inception-v3/inception_v3.png 400 3x3 factor %} 
+<div class='img-size-half'>
+{% asset_img inception_v3.png 3x3 factor %} 
+</div>
 
 # 参考文献
 

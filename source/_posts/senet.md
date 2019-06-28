@@ -53,7 +53,9 @@ x^2,...,x^{C'}]$。由上式可见输出是由输入的每一个channel处都参
 
 SENet可由SE Block对原网络结构改造而成，如ResNet残差单元及Inception模块修改后基本结构如下：
 
-{% img /senet/schema.png schema 400 %}
+<div class='img-size-half'>
+{% asset_img schema.png schema %}
+</div>
 
 # SENet
 

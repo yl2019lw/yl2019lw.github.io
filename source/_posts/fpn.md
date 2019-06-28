@@ -16,13 +16,17 @@ mathjax: true
 文章提出了Feature Pyramid Network，利用卷积神经网络内在的特征层次性，以低成本的方式实现了利用多个尺度的特征，在多个应用上显示了作为特征提取方式的优越性。
 FPN有效地融合了高层的low-resolution,semantically strong特征与浅层的high-resolution,semantically weak特征，FPN与其它利用多尺度特征方式对比如下图：
 
-{% img /fpn/fpn.png 500 fpn %}
+<div class='img-size-half'>
+{% asset_img fpn.png fpn %}
+</div>
 
 # Feature Pyramid Networks
 
 FPN将单一尺度的图片作为输入，输出多个尺度的特征表示。其通过全卷积方式提取特征，当输入大小变化时，对应的feature map也成比例的变化大小。通常将resnet特征提取器称作backbone，检测与分割网络分支为head，则FPN为网络结构中的neck。FPN包含bottom-up pathway, top-down pathway及lateral conections 融合浅层的细粒度特征与深层强语义特征，示意图如下：
 
-{% img /fpn/fusion.png 500 fusion %}
+<div class='img-size-half'>
+{% asset_img fusion.png fusion %}
+</div>
 
 ## Bottom-up pathway
 
@@ -57,9 +61,11 @@ FPN提供了多个尺度可用的feature map，此时RPN可对应在这多个fea
 ## Ablation Experiments
 
 FPN的各组件用于生成region proposal的ablation结果如下：
+
 {% asset_img rpn-res.png rpn result %}
 
 FPN的各组件用于fast r-cnn的ablation结果如下：
+
 {% asset_img fastrcnn-res.png fast r-cnn result %}
 
 # 参考文献

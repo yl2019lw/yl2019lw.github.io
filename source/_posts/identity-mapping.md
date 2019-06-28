@@ -36,7 +36,10 @@ ResNet是由一系列的残差单元堆叠而成，如下所示：
 其中$\epsilon$表示loss，公式(5)说明了对深层$L$的梯度可以直接传递到浅层$l$。
 
 下图显示了原版ResNet及改进后的区别。
-{% img /identity-mapping/identity_mapping.png 400 identity mapping %}
+
+<div class='img-size-half'>
+{% asset_img identity_mapping.png identity mapping %}
+</div>
 
 # Identity Skip Connections
 
@@ -57,15 +60,21 @@ ResNet是由一系列的残差单元堆叠而成，如下所示：
 由于梯度中有$\prod_{i=L}^{L-1}\lambda_i$，当网络变深时容易出现梯度消失与梯度爆炸问题。
 下图所示为不同的skip connections 及其结果。
 
-{% img /identity-mapping/shortcut_connections.png 600 skip connections %}
+<div class='img-size-half'>
+{% asset_img shortcut_connections.png skip connections %}
+</div>
 
-{% img /identity-mapping/shortcut_connections_result.png 600 skip connections result %}
+<div class='img-size-half'>
+{% asset_img shortcut_connections_result.png skip connections result %}
+</div>
 
 # Usage of Activation Functions
 
 接下来探讨Identity在$f$方面的重要性，此时使用identity skip conntions，采用如下不同形式的残差块进行比较。
 
-{% img /identity-mapping/diff_activations.png 600 different activations %}
+<div class='img-size-half'>
+{% asset_img diff_activations.png different activations %}
+</div>
 
 如上图(c)所示可实现naive版本的identity，但由于$relu(x) = max(0, x)$总是输出非负数，会影响残差块的表达能力。
 上图(d),(e)的pre-activation指将本来处于相加后使用的relu放置在残差块的最前面，且只影响残差块这一分支。此时有：
@@ -76,11 +85,15 @@ ResNet是由一系列的残差单元堆叠而成，如下所示：
 
 事实上由于残差网络是由很多残差单元堆叠而成，after-addition activation和pre-activation是等价的，如下图所示：
 
-{% img /identity-mapping/pre_activation.png 600 pre activation %}
+<div class='img-size-half'>
+{% asset_img pre_activation.png pre activation %}
+</div>
 
 关于不同$f$调整的结果见下表：
 
-{% img /identity-mapping/diff_activations_result.png 600 different activations result %}
+<div class='img-size-half'>
+{% asset_img diff_activations_result.png different activations result %}
+</div>
 
 # 总结
 

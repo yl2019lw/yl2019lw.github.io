@@ -25,7 +25,9 @@ OANet基于采取FPN作为backbone的Mask R-CNN来进行实例分割，同时共
 
 语义分割分支使用FPN所有pyramid level的特征，示意图如下：
 
-{% img /oanet/stuff.png 500 OANet stuff segmentation %}
+<div class='img-size-half'>
+{% asset_img stuff.png OANet stuff segmentation %}
+</div>
 
 ## Spatial Ranking Module
 

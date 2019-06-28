@@ -18,7 +18,9 @@ mathjax: true
 
 Inception-V4结构如下：
 
-{% img /inception-v4/inception-v4.png 500 inception v4 %}
+<div class='img-size-half'>
+{% asset_img inception-v4.png inception v4 %}
+</div>
 
 其中对应Inception-A,Inception-B,Inception-C如下：
 {% asset_img inception-v4-schema.png inception v4 %}
@@ -26,7 +28,9 @@ Inception-V4结构如下：
 # Inception-ResNet
 
 Inception-ResNet结构如下：
-{% img /inception-v4/inception-resnet.png 500 inception resnet %}
+<div class='img-size-half'>
+{% asset_img inception-resnet.png inception resnet %}
+</div>
 
 其中对应Inception-ResNet-V1版本Inception-A,Inception-B,Inception-C如下：
 {% asset_img inception-resnet-v1-schema.png inception resnet v1 %}
@@ -37,7 +41,9 @@ Inception-ResNet结构如下：
 # Result
 
 不同版本Inception网络在ImageNet运行结果如下：
-{% img /inception-v4/result.png 500 result for different versions of inception network %}
+<div class='img-size-half'>
+{% asset_img result.png result for different versions of inception network %}
+</div>
 
 # 参考文献
 

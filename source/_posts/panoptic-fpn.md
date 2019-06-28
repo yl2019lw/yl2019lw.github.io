@@ -16,7 +16,9 @@ date: 2019-06-17 13:08:56
 
 其通过采用了FPN作为骨干网络的Mask R-CNN来进行实例分割，在此基础上增加轻量级地语义分割分支。
 
-{% img /panoptic-fpn/panoptic-fpn.png 500 panoptic fpn %}
+<div class='img-size-half'>
+{% asset_img panoptic-fpn.png panoptic fpn %}
+</div>
 
 Panoptic FPN使用Panoptic Quality作为全景分割评价指标，使用panoptic segmentation中启发式方法融合语义分割与实例分割结果。
 
@@ -47,7 +49,9 @@ Panoptic FPN采用基于FPN的Mask R-CNN，并将其扩展以进行pixel-wise语
 
 为了预测语义标记，文章合并了从FPN的所有pyramid level获取到的特征信息。
 
-{% img /panoptic-fpn/semantic.png 500 panoptic fpn semantic branch %}
+<div class='img-size-half'>
+{% asset_img semantic.png panoptic fpn semantic branch %}
+</div>
 
 从FPN的最深层特征开始(1/32 scale)，经过三个上采样阶段最终至1/4 scale。每个上采样阶段包含3x3卷积，group norm, ReLU及2倍双线性上采样。
 

@@ -21,7 +21,9 @@ RDN内部的节点将其输出送入同一RDB内所有的后续节点，能够�
 获得多个层次的RDB输出的局部特征后，通过全局特征融合可以用全局地方式保留层次化的信息。
 RDN更有效地综合利用了层次化的特征信息，其与MDSR，SRDenseNet使用的特征提取块对比如下图：
 
-{% img /rdn/comparison.png 400 comparison %}
+<div class='img-size-half'>
+{% asset_img comparison.png comparison %}
+</div>
 
 # Residual Dense Network
 
@@ -59,7 +61,9 @@ RDN网络包含shallow feature extraction net(SFENet)，residual dense blocks(RD
 
 RDB包含dense connected layers, local feature fusion, local residual learning实现了contiguous memory机制，如下图所示：
 
-{% img /rdn/rdb.png 400 rdb %}
+<div class='img-size-half'>
+{% asset_img rdb.png rdb %}
+</div>
 
 ### Contiguous memory
 

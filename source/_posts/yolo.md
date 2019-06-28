@@ -35,7 +35,9 @@ YOLO将输入图片划分为大小为$S \times S$的格子，如果某个物体�
 
 模型流程如下，YOLO预测固定大小的输出进行回归。
 
-{% img /yolo/yolo.png 600 YOLO %}
+<div class='img-size-half'>
+{% asset_img yolo.png YOLO %}
+</div>
 
 ## Architecture
 
@@ -55,13 +57,13 @@ YOLO包含24层卷积与2个全连接层，其间使用了简化版Inception模�
 
 YOLO为每个格子预测多个box，在训练时每个物体只有一个box负责预测该对象，我们根据与ground truth的IoU值挑选box。
 
-{% img /yolo/loss.png 500 YOLO Loss %}
+<div class='img-size-half'>
+{% asset_img loss.png YOLO Loss %}
+</div>
 
 如上所示为实际使用的损失函数，$1_i^{obj}$标示物体落在格子i，$1_{i,j}^{obj}$标示格子i内第j个box负责预测该物体。
 
 仅在格子内包含物体中心时惩罚分类误差，仅在相应box负责预测物体时惩罚定位误差。
-
-
 
 # 参考文献
 

@@ -19,7 +19,9 @@ mathjax: true
 
 Deeplab使用孔洞卷积，对输入数据使用步长rate进行间隔采样，如下图所示:
 
-{% img /deeplab-v2/hole.png 500 atrous %}
+<div class='img-size-half'>
+{% asset_img hole.png atrous %}
+</div>
 
 则1-D卷积输入输出对应关系可表示如下：
 
@@ -31,12 +33,15 @@ Atrous convolution使用rate为r时相当于在相邻卷积参数中插入了$r-
 
 # Atrous Spatial Pyramid Pooling
 
-{% img /deeplab-v2/aspp.png 500 atrous spatial pyramid pooling %}
+<div class='img-size-half'>
+{% asset_img aspp.png atrous spatial pyramid pooling %}
+</div>
 
 文章采用多个不同rate的孔洞卷积来利用多尺度信息,并将其输出结果进行融合。
 
-{% img /deeplab-v2/deeplab-aspp.png 500 deeplab-aspp %}
-
+<div class='img-size-half'>
+{% asset_img deeplab-aspp.png deeplab-aspp %}
+</div>
 
 # 参考文献
 

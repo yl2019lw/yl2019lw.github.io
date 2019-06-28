@@ -32,7 +32,9 @@ Things and stuff consistency在于语义分割分支与实例分割分支对每�
 
 实例分割分支为每个RoI生成对应类别的segmentation mask score，可采用下述RoI Flatten操作根据全部RoI的分割结果进行拼贴得到实例分支confidence mask。
 
-{% img /tascnet/roi-flatten.png 500 RoI Flatten %}
+<div class='img-size-half'>
+{% asset_img roi-flatten.png RoI Flatten %}
+</div>
 
 首先构造同输入图像大小的空白tensor，然后将RoI实例对应类别的分割结果使用0.5进行阈值过滤，通过插值到相应大小贴到该tensor相应位置处。
 

@@ -15,7 +15,9 @@ mathjax: true
 
 Mask R-CNN在Faster R-CNN基础上增加了mask分支，能够高效地对每个RoI预测其mask，赢得coco数据集上目标检测，实例分割及人体关键点检测任务冠军。Mask R-CNN整体网络结构如下所示：
 
-{% img /mask-rcnn/mask-rcnn.png 600 mask r-cnn %}
+<div class='img-size-half'>
+{% asset_img mask-rcnn.png mask r-cnn %}
+</div>
 
 # Mask R-CNN
 
@@ -27,9 +29,13 @@ mask编码了物体的详细位置信息，因此不同于分类与box回归使�
 
 双线性插值计算方式如下：
 
-{% img /mask-rcnn/BilinearInterpolation.png 300 bilinear point %}
+<div class='img-size-half'>
+{% asset_img BilinearInterpolation.png bilinear point %}
+</div>
 
-{% img /mask-rcnn/bilinear.png 600 bilinear calculate %}
+<div class='img-size-half'>
+{% asset_img bilinear.png bilinear calculate %}
+</div>
 
 # 参考文献
 

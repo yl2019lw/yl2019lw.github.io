@@ -18,7 +18,9 @@ mathjax: true
 
 ResNext基本块结构如下：
 
-{% img /resnext/block.png 600 resnext block %}
+<div class='img-size-half'>
+{% asset_img block.png resnext block %}
+</div>
 
 左边为ResNet，右边为ResNext，参考了Inception多分支结构，但不同分支拓扑结构相同。二者具有大致相同的参数量和计算复杂度。
 
@@ -30,11 +32,15 @@ ResNext块有如下等价形式，实现中采用第三种方式：
 
 近似复杂度的cardinality与width关系如下：
 
-{% img /resnext/cardinality_width_relation.png 600 cardinality width relation %}
+<div class='img-size-half'>
+{% asset_img cardinality_width_relation.png cardinality width relation %}
+</div>
 
 堆叠而成的ResNext-50 结构如下表：
 
-{% img /resnext/resnext50.png 600 resnext-50 %}
+<div class='img-size-half'>
+{% asset_img resnext50.png resnext-50 %}
+</div>
 
 其中，ResNext-50与ResNet-50参数量和计算复杂度相近。
 
@@ -43,22 +49,30 @@ ResNext块有如下等价形式，实现中采用第三种方式：
 * Cardinality vs Width
 
     增加基本块内的cardinality比增加块内width更有效，如下表所示(保持复杂度)：
-{% img /resnext/cardinality_width_result.png 600 cardinality width result %}
+<div class='img-size-half'>
+{% asset_img cardinality_width_result.png cardinality width result %}
+</div>
 
 * Increasing Cardinality vs Deeper/Wider
 
     增加cardinality也比加深或加宽网络有更有效的表示能力，32x4d版ResNext-101甚至比其多一倍复杂度的ResNext-200结果还要好。
-{% img /resnext/deeper_wider.png 600  increasing cardinality vs deeper wider %}
+<div class='img-size-half'>
+{% asset_img deeper_wider.png increasing cardinality vs deeper wider %}
+</div>
 
 * Residual connections
 
     残差连接也很重要：
-{% img /resnext/residual.png 600 residual connections %}
+<div class='img-size-half'>
+{% asset_img residual.png residual connections %}
+</div>
 
 * performance
 
     与几个优秀模型在ImageNet数据集上的比较：
-{% img /resnext/imagenet_1k.png 600 imagenet 1000 result %}
+<div class='img-size-half'>
+{% asset_img imagenet_1k.png imagenet 1000 result %}
+</div>
 
 # 参考文献
 

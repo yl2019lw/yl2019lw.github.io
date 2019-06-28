@@ -22,7 +22,9 @@ PASCAL VOC数据集主要有voc2007与voc2012两个不同的版本，voc2012中�
 
 R-CNN首先由输入图片产生一些与类别无关的region proposal，作为可能的目标检测框，然后使用卷积神经网络从这些候选框中提取固定大小的特征，再对提取出的特征使用线性svm分别针对每个类别计算得分，认为所框选的部分为得分高的对应物体类别。最终也会用bbox regression来对region proposal进行调整，使得检测的位置更精确。整体流程如下：
 
-{% img /rcnn/rcnn.png 600 rcnn %}
+<div class='img-size-half'>
+{% asset_img rcnn.png rcnn %}
+</div>
 
 ## Region proposal
 

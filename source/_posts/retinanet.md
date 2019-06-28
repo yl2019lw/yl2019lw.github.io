@@ -50,7 +50,9 @@ mathjax: true
 
 不同$\gamma$值设定的Focal loss如下图所示。
 
-{% img /retinanet/focal-loss.png 600 Focal Loss %}
+<div class='img-size-half'>
+{% asset_img focal-loss.png Focal Loss %}
+</div>
 
 当一个样本难以被分类时，其$p_t$值较小，调制因子接近于1，损失函数相当于原始交叉熵。简单样本的$p_t$值接近于1，调制因子接近于0，导致容易样本被大幅降权。
 
